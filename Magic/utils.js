@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="onepiece-logo.png" alt="Logo One Piece" class="footer-logo-img">
-                    <p>La community di Messina più grande del Sud Italia</p>
+                    <img src="magic-logo.png" alt="Logo Magic: The Gathering" class="footer-logo-img">
+                    <p>La community Magic più grande dello Stretto di Messina</p>
                 </div>
                 <div class="footer-links">
                     <h4>Links Utili</h4>
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="footer-newsletter">
                     <h4>Resta Aggiornato</h4>
-                    <p>Iscriviti alla nostra newsletter per ricevere aggiornamenti sui prossimi eventi e le ultime novità.</p>
+                    <p>Iscriviti alla nostra newsletter per ricevere aggiornamenti sui prossimi eventi Magic e le ultime novità dal Multiverso.</p>
                     <form class="newsletter-form">
                         <input type="email" placeholder="La tua email" required>
                         <button type="submit" class="btn btn-primary">Iscriviti</button>
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Lega dello Stretto. Tutti i diritti riservati.</p>
+                <p>&copy; 2024 Lega dello Stretto - Magic: The Gathering. Tutti i diritti riservati.</p>
             </div>
         </div>`;
         
