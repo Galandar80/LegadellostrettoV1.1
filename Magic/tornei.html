@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tornei MTG ufficiali della Lega dello Stretto - Standard, Modern, Commander e Limited">
+    <meta name="keywords" content="Magic The Gathering, MTG, tornei, standard, modern, commander, limited, messina">
+    <meta name="author" content="Lega dello Stretto MTG">
+    <title>Tornei MTG - Lega dello Stretto Magic</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS personalizzato -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="magic-logo.png" alt="Magic: The Gathering Logo" class="logo-img">
+                <span class="site-title">Lega dello Stretto MTG</span>
+            </div>
+            <nav class="main-nav" id="mainNav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link hub-link"><i class="fas fa-home"></i> Hub</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="tornei.html" class="nav-link active">Tornei</a></li>
+                    <li class="nav-item"><a href="classifica.html" class="nav-link">Ranking</a></li>
+                    <li class="nav-item"><a href="eventi.html" class="nav-link">Eventi</a></li>
+                    <li class="nav-item"><a href="regolamento.html" class="nav-link">Regolamento</a></li>
+                    <li class="nav-item"><a href="contatti.html" class="nav-link">Contatti</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section per Tornei -->
+    <section class="hero eventi-hero" style="background: none; position: relative; overflow: hidden; height: 400px;">
+        <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)); z-index: 1;"></div>
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, var(--magic-red) 0%, var(--magic-blue) 50%, var(--magic-black) 100%); z-index: 0;">
+            <div class="magic-particles"></div>
+        </div>
+        <div class="hero-content fade-in" style="position: relative; z-index: 2; text-align: center; max-width: 900px;">
+            <h1 class="hero-title" style="font-size: 4rem; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9); letter-spacing: 3px; margin-bottom: 1.5rem; font-weight: 800; text-transform: uppercase; color: var(--magic-gold);">TORNEI MTG</h1>
+            <p class="hero-subtitle" style="font-size: 1.3rem; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); color: var(--magic-silver);">Competizioni ufficiali Magic: The Gathering dello Stretto</p>
+        </div>
+    </section>
+
+    <!-- Contenuto principale -->
+    <main class="container">
+        <!-- Intro Tornei -->
+        <section class="section-container fade-in">
+            <h2 class="section-title"><i class="fas fa-trophy magic-icon"></i> Competizioni MTG</h2>
+            <p class="section-description">
+                Partecipa ai nostri tornei MTG ufficiali! Offriamo competizioni in tutti i formati principali: Standard, Modern, Commander/EDH e Limited. 
+                I nostri eventi seguono le regole DCI ufficiali e assegnano punti PWP (Planeswalker Points).
+            </p>
+            
+            <!-- Prossimi Tornei -->
+            <div class="upcoming-tournaments">
+                <h3><i class="fas fa-calendar-alt magic-icon"></i> Prossimi Tornei</h3>
+                <div id="nextTournaments" class="upcoming-tournaments-grid">
+                    <div class="tournament-card">
+                        <div class="tournament-date">
+                            <i class="far fa-calendar"></i> 22 Dicembre 2024
+                        </div>
+                        <h4 class="tournament-title">Standard Showdown</h4>
+                        <div class="tournament-location">
+                            <i class="fas fa-map-marker-alt"></i> Games Academy Messina
+                        </div>
+                        <div class="tournament-details">
+                            <p><strong>Formato:</strong> Standard Swiss + Top 8</p>
+                            <p><strong>Iscrizione:</strong> €15</p>
+                            <p><strong>Premi:</strong> Booster Prize Pool + Promo Cards</p>
+                            <p><strong>Orario:</strong> 15:00 - 21:00</p>
+                        </div>
+                        <div class="tournament-action">
+                            <a href="eventi.html" class="btn btn-primary">Iscriviti</a>
+                        </div>
+                    </div>
+                    
+                    <div class="tournament-card">
+                        <div class="tournament-date">
+                            <i class="far fa-calendar"></i> 29 Dicembre 2024
+                        </div>
+                        <h4 class="tournament-title">Commander Night</h4>
+                        <div class="tournament-location">
+                            <i class="fas fa-map-marker-alt"></i> Games Academy Messina
+                        </div>
+                        <div class="tournament-details">
+                            <p><strong>Formato:</strong> Commander/EDH Multiplayer</p>
+                            <p><strong>Iscrizione:</strong> €10</p>
+                            <p><strong>Premi:</strong> Promo Cards e Store Credit</p>
+                            <p><strong>Orario:</strong> 18:00 - 23:00</p>
+                        </div>
+                        <div class="tournament-action">
+                            <a href="eventi.html" class="btn btn-primary">Iscriviti</a>
+                        </div>
+                    </div>
+                    
+                    <div class="tournament-card">
+                        <div class="tournament-date">
+                            <i class="far fa-calendar"></i> 5 Gennaio 2025
+                        </div>
+                        <h4 class="tournament-title">Modern Regional Qualifier</h4>
+                        <div class="tournament-location">
+                            <i class="fas fa-map-marker-alt"></i> Centro Congressi Messina
+                        </div>
+                        <div class="tournament-details">
+                            <p><strong>Formato:</strong> Modern Swiss + Top 8</p>
+                            <p><strong>Iscrizione:</strong> €25</p>
+                            <p><strong>Premi:</strong> €500 Prize Pool + Qualificazione RCQ</p>
+                            <p><strong>Orario:</strong> 09:00 - 19:00</p>
+                        </div>
+                        <div class="tournament-action">
+                            <a href="eventi.html" class="btn btn-primary">Iscriviti</a>
+                        </div>
+                    </div>
+                    
+                    <div class="tournament-card">
+                        <div class="tournament-date">
+                            <i class="far fa-calendar"></i> 12 Gennaio 2025
+                        </div>
+                        <h4 class="tournament-title">Draft Night - Foundations</h4>
+                        <div class="tournament-location">
+                            <i class="fas fa-map-marker-alt"></i> Games Academy Messina
+                        </div>
+                        <div class="tournament-details">
+                            <p><strong>Formato:</strong> Foundations Draft</p>
+                            <p><strong>Iscrizione:</strong> €18 (3 booster inclusi)</p>
+                            <p><strong>Premi:</strong> Keep what you draft + Prize Packs</p>
+                            <p><strong>Orario:</strong> 15:30 - 19:30</p>
+                        </div>
+                        <div class="tournament-action">
+                            <a href="eventi.html" class="btn btn-primary">Iscriviti</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tornei Passati con Challonge Embedding -->
+        <section class="section-container fade-in tornei-section">
+            <h2 class="section-title"><i class="fas fa-history magic-icon"></i> Tornei Passati</h2>
+            
+            <div class="tornei-grid" id="torneiPassatiContainer">
+                <!-- I tornei passati verranno caricati dinamicamente dal database -->
+                <div class="loading-message">
+                    <i class="fas fa-spinner fa-spin"></i> Caricamento tornei passati...
+                </div>
+            </div>
+            
+            <div class="tournament-note">
+                <p><i class="fas fa-info-circle"></i> <strong>Nota:</strong> Per la partecipazione ai prossimi tornei, registrati su Eventbrite o contatta direttamente il negozio. Tutti i tornei assegnano Planeswalker Points ufficiali.</p>
+            </div>
+        </section>
+        
+        <!-- Formati Supportati -->
+        <section class="section-container fade-in">
+            <h2 class="section-title"><i class="fas fa-cards-blank magic-icon"></i> Formati MTG Supportati</h2>
+            
+            <div class="tournament-rules">
+                <div class="rule-card">
+                    <div class="rule-icon" style="color: var(--magic-white);">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="rule-content">
+                        <h3>Standard</h3>
+                        <p>Il formato più accessibile con le ultime 2 anni di set. Rotazione con ogni autunno. Ideale per nuovi giocatori e meta competitivo veloce.</p>
+                        <small>Frequenza: Ogni giovedì e sabato</small>
+                    </div>
+                </div>
+                
+                <div class="rule-card">
+                    <div class="rule-icon" style="color: var(--magic-blue);">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="rule-content">
+                        <h3>Modern</h3>
+                        <p>Formato non-rotante che include set dal 2003. Meta diversificato con archetipi competitivi consolidati e nuove strategie emergenti.</p>
+                        <small>Frequenza: Prima domenica del mese</small>
+                    </div>
+                </div>
+                
+                <div class="rule-card">
+                    <div class="rule-icon" style="color: var(--magic-green);">
+                        <i class="fas fa-chess-king"></i>
+                    </div>
+                    <div class="rule-content">
+                        <h3>Commander/EDH</h3>
+                        <p>Formato multiplayer 100 carte singleton con commander leggendario. Focus su interazione sociale e partite epiche.</p>
+                        <small>Frequenza: Ogni venerdì sera</small>
+                    </div>
+                </div>
+                
+                <div class="rule-card">
+                    <div class="rule-icon" style="color: var(--magic-red);">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="rule-content">
+                        <h3>Limited (Draft/Sealed)</h3>
+                        <p>Costruisci il tuo mazzo dai booster aperti durante l'evento. Testa le tue abilità di draft e deck building in tempo reale.</p>
+                        <small>Frequenza: Ogni secondo sabato</small>
+                    </div>
+                </div>
+                
+                <div class="rule-card">
+                    <div class="rule-icon" style="color: var(--magic-gold);">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="rule-content">
+                        <h3>Pioneer</h3>
+                        <p>Formato non-rotante che include set da Return to Ravnica (2012). Ponte perfetto tra Standard e Modern.</p>
+                        <small>Frequenza: Tornei speciali mensili</small>
+                    </div>
+                </div>
+                
+                <div class="rule-card">
+                    <div class="rule-icon" style="color: var(--magic-black);">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="rule-content">
+                        <h3>Legacy</h3>
+                        <p>Formato con quasi tutte le carte della storia di Magic. Meta ad alto livello con strategie potentissime e combo devastanti.</p>
+                        <small>Frequenza: Eventi speciali trimestrali</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Regole e Informazioni -->
+        <section class="section-container fade-in">
+            <h2 class="section-title"><i class="fas fa-gavel magic-icon"></i> Regole Generali</h2>
+            
+            <div class="tournament-rules">
+                <div class="rule-card">
+                    <div class="rule-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="rule-content">
+                        <h3>Regole Ufficiali</h3>
+                        <p>Tutti i tornei seguono le Magic Tournament Rules (MTR) e le Infraction Procedure Guide (IPG) ufficiali Wizards of the Coast.</p>
+                    </div>
+                </div>
+                
+                <div class="rule-card">
+                    <div class="rule-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <div class="rule-content">
+                        <h3>DCI Number</h3>
+                        <p>È richiesto un DCI Number valido per partecipare ai tornei sanctioned. Puoi registrarti gratuitamente sul sito Wizards.</p>
+                    </div>
+                </div>
+                
+                <div class="rule-card">
+                    <div class="rule-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="rule-content">
+                        <h3>Tempistiche</h3>
+                        <p>Match a tempo: 50 minuti per round. Commander: partite libere fino al vincitore. Limited: 40 minuti per build + 50 per round.</p>
+                    </div>
+                </div>
+                
+                <div class="rule-card">
+                    <div class="rule-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="rule-content">
+                        <h3>Sistema Premi</h3>
+                        <p>Premi basati sul numero di partecipanti: booster packs, store credit, carte promo e qualificazioni per eventi maggiori.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tournament-action-center">
+                <a href="regolamento.html" class="btn btn-secondary">Regolamento Completo</a>
+                <a href="magic-formats.html" class="btn btn-primary">Guide ai Formati</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="include-footer"></div>
+    </footer>
+
+    <script src="utils.js"></script>
+    <script>
+        // Configurazione Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyBODQaRGGSTwJh8fE8IpJKDDf0LQUrKjkA",
+            authDomain: "lega-dello-stretto-5b0dd.firebaseapp.com",
+            databaseURL: "https://lega-dello-stretto-5b0dd-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "lega-dello-stretto-5b0dd",
+            storageBucket: "lega-dello-stretto-5b0dd.appspot.com",
+            messagingSenderId: "993853728768",
+            appId: "1:993853728768:web:b7089fcd58b7b01d9e9b78"
+        };
+
+        // Inizializza Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // Carica tornei passati da Firebase
+        function caricaTorneiPassati() {
+            const container = document.getElementById('torneiPassatiContainer');
+            
+            database.ref('/').once('value', (snapshot) => {
+                const data = snapshot.val();
+                container.innerHTML = '';
+                
+                if (!data) {
+                    container.innerHTML = '<div class="no-tournaments">Nessun torneo passato disponibile</div>';
+                    return;
+                }
+                
+                // Converti i dati in array per ordinamento
+                const tornei = Object.entries(data)
+                    .filter(([id, torneo]) => torneo.nomeTorneo && torneo.classifica)
+                    .map(([id, torneo]) => ({
+                        id,
+                        ...torneo,
+                        data: torneo.data || torneo.creatoIl || 'Data non disponibile',
+                        partecipanti: torneo.classifica ? Object.keys(torneo.classifica).length : 0
+                    }))
+                    .sort((a, b) => new Date(b.data) - new Date(a.data));
+                
+                if (tornei.length === 0) {
+                    container.innerHTML = '<div class="no-tournaments">Nessun torneo passato disponibile</div>';
+                    return;
+                }
+                
+                // Genera le card dei tornei
+                tornei.forEach(torneo => {
+                    const torneoCard = document.createElement('div');
+                    torneoCard.className = 'tournament-card past-tournament';
+                    
+                    // Determina il formato dal nome o ID
+                    let formato = 'Standard';
+                    let formatoIcon = 'fas fa-bolt';
+                    let formatoColor = 'var(--magic-white)';
+                    
+                    if (torneo.nomeTorneo.toLowerCase().includes('modern')) {
+                        formato = 'Modern';
+                        formatoIcon = 'fas fa-fire';
+                        formatoColor = 'var(--magic-blue)';
+                    } else if (torneo.nomeTorneo.toLowerCase().includes('commander')) {
+                        formato = 'Commander';
+                        formatoIcon = 'fas fa-chess-king';
+                        formatoColor = 'var(--magic-green)';
+                    } else if (torneo.nomeTorneo.toLowerCase().includes('draft')) {
+                        formato = 'Draft';
+                        formatoIcon = 'fas fa-gift';
+                        formatoColor = 'var(--magic-red)';
+                    } else if (torneo.nomeTorneo.toLowerCase().includes('legacy')) {
+                        formato = 'Legacy';
+                        formatoIcon = 'fas fa-gem';
+                        formatoColor = 'var(--magic-black)';
+                    }
+                    
+                    // Trova il vincitore
+                    let vincitore = 'Dato non disponibile';
+                    if (torneo.classifica) {
+                        const primo = Object.values(torneo.classifica)
+                            .find(player => parseInt(player.posizione) === 1);
+                        if (primo) vincitore = primo.nome;
+                    }
+                    
+                    torneoCard.innerHTML = `
+                        <div class="tournament-header">
+                            <div class="tournament-format" style="color: ${formatoColor};">
+                                <i class="${formatoIcon}"></i> ${formato}
+                            </div>
+                            <div class="tournament-date">
+                                <i class="far fa-calendar"></i> ${torneo.data}
+                            </div>
+                        </div>
+                        <h4 class="tournament-title">${torneo.nomeTorneo}</h4>
+                        <div class="tournament-stats">
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>${torneo.partecipanti} Partecipanti</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-crown"></i>
+                                <span>Vincitore: ${vincitore}</span>
+                            </div>
+                        </div>
+                        <div class="tournament-actions">
+                            <button onclick="mostraDettagliTorneo('${torneo.id}')" class="btn btn-secondary btn-sm">
+                                <i class="fas fa-list"></i> Classifica
+                            </button>
+                            ${torneo.linkChallonge ? `<a href="${torneo.linkChallonge}" target="_blank" class="btn btn-primary btn-sm">
+                                <i class="fas fa-external-link-alt"></i> Challonge
+                            </a>` : ''}
+                        </div>
+                    `;
+                    
+                    container.appendChild(torneoCard);
+                });
+            }).catch(error => {
+                console.error('Errore nel caricamento dei tornei:', error);
+                container.innerHTML = '<div class="error-message">Errore nel caricamento dei tornei passati</div>';
+            });
+        }
+
+        // Mostra dettagli torneo in modal
+        function mostraDettagliTorneo(torneoId) {
+            database.ref(`/${torneoId}`).once('value', (snapshot) => {
+                const torneo = snapshot.val();
+                if (!torneo || !torneo.classifica) {
+                    alert('Dettagli torneo non disponibili');
+                    return;
+                }
+                
+                // Crea modal con classifica
+                const modal = document.createElement('div');
+                modal.className = 'modal';
+                modal.style.display = 'block';
+                
+                // Ordina la classifica
+                const classificaOrdinata = Object.values(torneo.classifica)
+                    .sort((a, b) => parseInt(a.posizione) - parseInt(b.posizione));
+                
+                const classificaHTML = classificaOrdinata.map(player => `
+                    <tr>
+                        <td>${player.posizione}°</td>
+                        <td>${player.nome}</td>
+                        <td>${player.punti || 0}</td>
+                    </tr>
+                `).join('');
+                
+                modal.innerHTML = `
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>${torneo.nomeTorneo}</h2>
+                            <button onclick="this.closest('.modal').remove()" class="modal-close">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="tournament-info">
+                                <p><strong>Data:</strong> ${torneo.data || 'Non disponibile'}</p>
+                                <p><strong>Partecipanti:</strong> ${Object.keys(torneo.classifica).length}</p>
+                            </div>
+                            <h3>Classifica Finale</h3>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Pos</th>
+                                            <th>Planeswalker</th>
+                                            <th>Punti</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${classificaHTML}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+                
+                // Chiudi modal cliccando fuori
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.remove();
+                    }
+                });
+            });
+        }
+
+        // Inizializzazione
+        document.addEventListener('DOMContentLoaded', function() {
+            caricaTorneiPassati();
+            
+            // Aggiungi countdown ai tornei futuri (opzionale)
+            const torneiCards = document.querySelectorAll('.tournament-card');
+            torneiCards.forEach(card => {
+                const dateElement = card.querySelector('.tournament-date');
+                if (dateElement) {
+                    const dateText = dateElement.textContent.replace('📅 ', '').trim();
+                    // Qui potresti aggiungere logica per countdown se necessario
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

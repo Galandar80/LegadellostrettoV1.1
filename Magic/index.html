@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lega dello Stretto - Magic: The Gathering</title>
+    <meta name="description" content="Community ufficiale Magic: The Gathering dello Stretto di Messina. Tornei, ranking Planeswalker, eventi e competizioni MTG.">
+    <meta name="keywords" content="Magic The Gathering, MTG, Lega Stretto, Messina, Tornei, Planeswalker, EDH, Commander, Standard, Modern">
+    <meta property="og:title" content="Lega dello Stretto - Magic: The Gathering">
+    <meta property="og:description" content="Community ufficiale Magic: The Gathering dello Stretto di Messina">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://legadellostretto.it/magic">
+    
+    <!-- Font e Icone -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stili CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="magic-logo.png">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="magic-logo.png" alt="Magic: The Gathering Logo">
+            <span>Magic: The Gathering</span>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="classifica.html"><i class="fas fa-trophy"></i> Ranking</a></li>
+                <li><a href="tornei.html"><i class="fas fa-calendar"></i> Tornei</a></li>
+                <li><a href="eventi.html"><i class="fas fa-star"></i> Eventi</a></li>
+                <li><a href="regolamento.html"><i class="fas fa-scroll"></i> Regolamento</a></li>
+                <li><a href="contatti.html"><i class="fas fa-envelope"></i> Contatti</a></li>
+            </ul>
+        </nav>
+        <button class="theme-toggle" onclick="toggleTheme()">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
+
+    <!-- Container principale -->
+    <div class="container">
+        
+        <!-- Hero Section -->
+        <section class="section hero-section">
+            <h2><i class="fas fa-magic"></i> Benvenuti nella Lega MTG dello Stretto</h2>
+            <div class="hero-content">
+                <p>Unisciti alla più antica e prestigiosa community di <strong>Magic: The Gathering</strong> della Sicilia orientale. Dal 2019 organizziamo tornei competitivi, eventi casual e promuoviamo la crescita della community Planeswalker nel territorio dello Stretto di Messina.</p>
+                
+                <div class="hero-features">
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Community Attiva</h3>
+                        <p>Oltre 150 Planeswalker registrati e una community in continua crescita</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-trophy"></i>
+                        <h3>Tornei Competitivi</h3>
+                        <p>Tornei regolari di Standard, Modern, EDH e formati limitati</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-star"></i>
+                        <h3>Eventi Speciali</h3>
+                        <p>Prerelease, Release Party e eventi tematici durante tutto l'anno</p>
+                    </div>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="classifica.html" class="btn-icon">
+                        <i class="fas fa-chart-line"></i>
+                        Visualizza Ranking
+                    </a>
+                    <a href="tornei.html" class="btn-icon secondary">
+                        <i class="fas fa-calendar-plus"></i>
+                        Prossimi Tornei
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistiche Community -->
+        <section class="section stats-section">
+            <h2><i class="fas fa-chart-bar"></i> Statistiche Community</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalPlayers">147</div>
+                    <div class="stat-label">Planeswalker Registrati</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="activeTournaments">8</div>
+                    <div class="stat-label">Tornei Attivi</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="totalMatches">2.847</div>
+                    <div class="stat-label">Partite Giocate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="nextEvent">5</div>
+                    <div class="stat-label">Giorni al Prossimo Evento</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ranking Planeswalker -->
+        <section class="section">
+            <h2><i class="fas fa-crown"></i> Top Planeswalker della Lega</h2>
+            <div class="planeswalker-spotlight">
+                <div class="top-player-card position-1">
+                    <div class="player-rank">1°</div>
+                    <div class="player-info">
+                        <h3>Alessandro Torrisi</h3>
+                        <p>Champion della Lega • 2.847 Punti Planeswalker</p>
+                        <div class="player-badges">
+                            <span class="badge badge-mtg">Standard Champion</span>
+                            <span class="badge badge-mtg">Modern Master</span>
+                        </div>
+                    </div>
+                    <div class="player-stats">
+                        <span>Vittorie: 89%</span>
+                        <span>Tornei vinti: 12</span>
+                    </div>
+                </div>
+                
+                <div class="top-players-grid">
+                    <div class="player-card position-2">
+                        <span class="position">2°</span>
+                        <h4>Marco Bertoli</h4>
+                        <p>2.156 Punti</p>
+                        <span class="badge position-2">EDH Specialist</span>
+                    </div>
+                    <div class="player-card position-3">
+                        <span class="position">3°</span>
+                        <h4>Luca Marinelli</h4>
+                        <p>1.923 Punti</p>
+                        <span class="badge position-3">Pioneer Pro</span>
+                    </div>
+                    <div class="player-card">
+                        <span class="position">4°</span>
+                        <h4>Giuseppe Catalano</h4>
+                        <p>1.801 Punti</p>
+                        <span class="badge">Rising Star</span>
+                    </div>
+                    <div class="player-card">
+                        <span class="position">5°</span>
+                        <h4>Francesco Rizzo</h4>
+                        <p>1.657 Punti</p>
+                        <span class="badge">Limited Master</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ranking-actions">
+                <a href="classifica.html" class="btn-icon">
+                    <i class="fas fa-list"></i>
+                    Ranking Completo
+                </a>
+            </div>
+        </section>
+
+        <!-- Formati Supportati -->
+        <section class="section">
+            <h2><i class="fas fa-cards-blank"></i> Formati e Competizioni</h2>
+            <div class="formats-grid">
+                <div class="format-card standard">
+                    <div class="format-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Standard</h3>
+                    <p>Il formato più dinamico e in continua evoluzione. Competizioni regolari ogni mercoledì sera.</p>
+                    <div class="format-meta">
+                        <span class="format-frequency">Settimanale</span>
+                        <span class="format-prize">Premi WPN</span>
+                    </div>
+                </div>
+                
+                <div class="format-card modern">
+                    <div class="format-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Modern</h3>
+                    <p>Il formato competitivo più amato. Tornei mensili con prize pool garantito.</p>
+                    <div class="format-meta">
+                        <span class="format-frequency">Mensile</span>
+                        <span class="format-prize">€200+ Prize Pool</span>
+                    </div>
+                </div>
+                
+                <div class="format-card commander">
+                    <div class="format-icon">
+                        <i class="fas fa-chess-king"></i>
+                    </div>
+                    <h3>Commander/EDH</h3>
+                    <p>Il formato social per eccellenza. Serate dedicate e tornei casual ogni venerdì.</p>
+                    <div class="format-meta">
+                        <span class="format-frequency">Bi-settimanale</span>
+                        <span class="format-prize">Premi Speciali</span>
+                    </div>
+                </div>
+                
+                <div class="format-card limited">
+                    <div class="format-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Limited (Draft/Sealed)</h3>
+                    <p>Prerelease ufficiali, draft delle nuove espansioni e sealed deck competitivi.</p>
+                    <div class="format-meta">
+                        <span class="format-frequency">Ad eventi</span>
+                        <span class="format-prize">Booster + Promo</span>
+                    </div>
+                </div>
+                
+                <div class="format-card pioneer">
+                    <div class="format-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Pioneer</h3>
+                    <p>Il formato non-rotante più recente. Tornei speciali e qualificazioni RCQ.</p>
+                    <div class="format-meta">
+                        <span class="format-frequency">Speciali</span>
+                        <span class="format-prize">Qualificazioni</span>
+                    </div>
+                </div>
+                
+                <div class="format-card legacy">
+                    <div class="format-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Legacy</h3>
+                    <p>Il formato più potente e storico. Eventi speciali per i veterani del gioco.</p>
+                    <div class="format-meta">
+                        <span class="format-frequency">Occasionale</span>
+                        <span class="format-prize">Collectibles</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="formats-actions">
+                <a href="magic-formats.html" class="btn-icon">
+                    <i class="fas fa-info-circle"></i>
+                    Maggiori Informazioni
+                </a>
+                <a href="tornei.html" class="btn-icon secondary">
+                    <i class="fas fa-calendar-check"></i>
+                    Calendario Tornei
+                </a>
+            </div>
+        </section>
+
+        <!-- Prossimi Eventi -->
+        <section class="section">
+            <h2><i class="fas fa-calendar-star"></i> Prossimi Eventi</h2>
+            <div class="eventi-preview">
+                <div class="evento-preview-card">
+                    <div class="evento-date">
+                        <span class="day">15</span>
+                        <span class="month">DIC</span>
+                    </div>
+                    <div class="evento-info">
+                        <h3>Torneo Standard Weekly</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Games Academy Messina</p>
+                        <p><i class="fas fa-clock"></i> 20:00 - 23:30</p>
+                        <span class="badge iscrizione-aperta">Iscrizioni Aperte</span>
+                    </div>
+                    <div class="evento-actions">
+                        <a href="tornei.html" class="btn-icon">Iscriviti</a>
+                    </div>
+                </div>
+                
+                <div class="evento-preview-card evento-speciale">
+                    <div class="evento-date">
+                        <span class="day">18</span>
+                        <span class="month">DIC</span>
+                    </div>
+                    <div class="evento-info">
+                        <h3>Modern Masters Monthly</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Games Academy Messina</p>
+                        <p><i class="fas fa-clock"></i> 15:00 - 20:00</p>
+                        <span class="badge-countdown">Prize Pool €250</span>
+                    </div>
+                    <div class="evento-actions">
+                        <a href="eventi.html" class="btn-icon">Dettagli</a>
+                    </div>
+                </div>
+                
+                <div class="evento-preview-card">
+                    <div class="evento-date">
+                        <span class="day">22</span>
+                        <span class="month">DIC</span>
+                    </div>
+                    <div class="evento-info">
+                        <h3>Commander Night</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Games Academy Messina</p>
+                        <p><i class="fas fa-clock"></i> 20:30 - 01:00</p>
+                        <span class="badge iscrizione-aperta">Casual Event</span>
+                    </div>
+                    <div class="evento-actions">
+                        <a href="eventi.html" class="btn-icon">Partecipa</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="eventi-actions">
+                <a href="eventi.html" class="btn-icon">
+                    <i class="fas fa-calendar"></i>
+                    Tutti gli Eventi
+                </a>
+            </div>
+        </section>
+
+        <!-- News e Aggiornamenti -->
+        <section class="section">
+            <h2><i class="fas fa-newspaper"></i> News e Aggiornamenti</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-date">10 DIC 2024</div>
+                    <h3>Nuove Regole per i Tornei Standard</h3>
+                    <p>Aggiornamento alle regole della lega per i tornei Standard settimanali. Nuove modalità di punteggio e premi aggiuntivi.</p>
+                    <a href="regolamento.html" class="news-link">Leggi tutto <i class="fas fa-arrow-right"></i></a>
+                </article>
+                
+                <article class="news-card featured">
+                    <div class="news-date">05 DIC 2024</div>
+                    <h3>Annuncio: Qualificazioni Regional Championship</h3>
+                    <p>La Lega dello Stretto è stata selezionata come sede ufficiale per le qualificazioni al Regional Championship italiano!</p>
+                    <a href="eventi.html" class="news-link">Scopri di più <i class="fas fa-arrow-right"></i></a>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-date">28 NOV 2024</div>
+                    <h3>Risultati Torneo Modern di Novembre</h3>
+                    <p>Congratulazioni ad Alessandro Torrisi per la vittoria del torneo Modern mensile. Resoconto completo e classifiche aggiornate.</p>
+                    <a href="classifica.html" class="news-link">Vedi risultati <i class="fas fa-arrow-right"></i></a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Community e Social -->
+        <section class="section">
+            <h2><i class="fas fa-users"></i> Resta Connesso</h2>
+            <div class="community-section">
+                <div class="community-card">
+                    <i class="fab fa-discord"></i>
+                    <h3>Server Discord</h3>
+                    <p>Unisciti al nostro server Discord per chattare con gli altri Planeswalker, organizzare partite e rimanere aggiornato sui tornei.</p>
+                    <a href="#" class="btn-icon">
+                        <i class="fab fa-discord"></i>
+                        Entra su Discord
+                    </a>
+                </div>
+                
+                <div class="community-card">
+                    <i class="fab fa-facebook"></i>
+                    <h3>Gruppo Facebook</h3>
+                    <p>Segui la nostra pagina Facebook per foto dei eventi, annunci ufficiali e momenti salienti della community.</p>
+                    <a href="#" class="btn-icon">
+                        <i class="fab fa-facebook"></i>
+                        Segui su Facebook
+                    </a>
+                </div>
+                
+                <div class="community-card">
+                    <i class="fab fa-telegram"></i>
+                    <h3>Canale Telegram</h3>
+                    <p>Ricevi notifiche immediate sui tornei dell'ultimo minuto, cambi di programma e comunicazioni urgenti.</p>
+                    <a href="#" class="btn-icon">
+                        <i class="fab fa-telegram"></i>
+                        Iscriviti al Canale
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer inclusivo -->
+    <div class="include-footer"></div>
+
+    <!-- JavaScript -->
+    <script src="utils.js"></script>
+    <script>
+        // Gestione tema
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? '' : 'light';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Aggiorna icona
+            const icon = document.querySelector('.theme-toggle i');
+            icon.className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+        }
+
+        // Carica tema salvato
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.body.setAttribute('data-theme', savedTheme);
+                const icon = document.querySelector('.theme-toggle i');
+                icon.className = savedTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+            }
+            
+            // Animazioni al caricamento
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((section, index) => {
+                setTimeout(() => {
+                    section.classList.add('fade-in');
+                }, index * 200);
+            });
+        });
+
+        // Contatore animato per le statistiche
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            function updateCounter() {
+                if (start < target) {
+                    start += increment;
+                    element.textContent = Math.floor(start).toLocaleString();
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target.toLocaleString();
+                }
+            }
+            
+            updateCounter();
+        }
+
+        // Avvia animazione contatori quando visibili
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statValue = entry.target.querySelector('.stat-value');
+                    const value = parseInt(statValue.dataset.value || statValue.textContent.replace(/[^\d]/g, ''));
+                    animateCounter(statValue, value);
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        document.querySelectorAll('.stat-card').forEach(card => {
+            const statValue = card.querySelector('.stat-value');
+            statValue.dataset.value = statValue.textContent.replace(/[^\d]/g, '');
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html> 
