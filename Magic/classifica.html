@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ranking ufficiale dei Planeswalker della Lega dello Stretto - Community Magic: The Gathering">
-    <meta name="keywords" content="Magic The Gathering, MTG, ranking, planeswalker, messina, tornei, classifica">
-    <meta name="author" content="Lega dello Stretto MTG">
-    <title>Ranking Planeswalker - Lega dello Stretto MTG</title>
+    <meta name="description" content="Classifiche ufficiali della Lega dello Stretto">
+    <title>Classifiche - Lega dello Stretto</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- CSS personalizzato -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="one-piece-styles.css">
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
@@ -20,15 +18,15 @@
     <header class="main-header">
         <div class="container header-container">
             <div class="logo-container">
-                <img src="magic-logo.png" alt="Magic: The Gathering Logo" class="logo-img">
-                <span class="site-title">Lega dello Stretto MTG</span>
+                <img src="magic-logo.png" alt="Logo Magic The Gathering" class="logo-img">
+                <span class="site-title">Lega dello Stretto</span>
             </div>
             <nav class="main-nav" id="mainNav">
                 <ul class="nav-list">
                     <li class="nav-item"><a href="../index.html" class="nav-link hub-link"><i class="fas fa-home"></i> Hub</a></li>
                     <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="tornei.html" class="nav-link">Tornei</a></li>
-                    <li class="nav-item"><a href="classifica.html" class="nav-link active">Ranking</a></li>
+                    <li class="nav-item"><a href="classifica.html" class="nav-link active">Classifiche</a></li>
                     <li class="nav-item"><a href="eventi.html" class="nav-link">Eventi</a></li>
                     <li class="nav-item"><a href="regolamento.html" class="nav-link">Regolamento</a></li>
                     <li class="nav-item"><a href="contatti.html" class="nav-link">Contatti</a></li>
@@ -43,15 +41,15 @@
         </div>
     </header>
 
-    <!-- Hero Section per Ranking -->
+    <!-- Hero Section per Classifiche -->
     <section class="hero eventi-hero" style="background: none; position: relative; overflow: hidden; height: 400px;">
-        <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)); z-index: 1;"></div>
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, var(--magic-black) 0%, var(--magic-blue) 50%, var(--magic-gold) 100%); z-index: 0;">
-            <div class="magic-particles"></div>
+        <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)); z-index: 1;"></div>
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; z-index: 0;">
+            <img src="classifiche.png" alt="One Piece Classifiche Banner" style="width: 100%; height: 100%; object-fit: cover; opacity: 1;">
         </div>
         <div class="hero-content fade-in" style="position: relative; z-index: 2; text-align: center; max-width: 900px;">
-            <h1 class="hero-title" style="font-size: 4rem; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9); letter-spacing: 3px; margin-bottom: 1.5rem; font-weight: 800; text-transform: uppercase; color: var(--magic-gold);">RANKING PLANESWALKER</h1>
-            <p class="hero-subtitle" style="font-size: 1.3rem; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); color: var(--magic-silver);">Scopri i migliori Planeswalker della Lega dello Stretto</p>
+            <h1 class="hero-title" style="font-size: 4rem; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9); letter-spacing: 3px; margin-bottom: 1.5rem; font-weight: 800; text-transform: uppercase; color: #f9f6e5;">CLASSIFICHE</h1>
+            <p class="hero-subtitle" style="font-size: 1.3rem; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); color: #f9f6e5;">Scopri i migliori giocatori della Lega dello Stretto</p>
         </div>
     </section>
 
@@ -61,7 +59,7 @@
         <div class="tables-container">
             <!-- Classifica Torneo -->
             <section class="section-container fade-in table-section">
-                <h2 class="section-title"><i class="fas fa-list-ol magic-icon"></i> Classifica Torneo</h2>
+                <h2 class="section-title"><i class="fas fa-list-ol"></i> Classifica Torneo</h2>
                 <div class="filter-container">
                     <select id="selectTorneo" onchange="updateClassificaTorneo()" class="form-select">
                         <option value="" disabled selected>Caricamento tornei...</option>
@@ -73,7 +71,7 @@
                         <thead>
                             <tr>
                                 <th>Posizione</th>
-                                <th>Planeswalker</th>
+                                <th>Giocatore</th>
                                 <th>Punti</th>
                             </tr>
                         </thead>
@@ -92,12 +90,12 @@
 
             <!-- Punti Totali -->
             <section class="section-container fade-in table-section">
-                <h2 class="section-title"><i class="fas fa-star magic-icon"></i> Punti Totali</h2>
+                <h2 class="section-title"><i class="fas fa-star"></i> Punti Totali</h2>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Planeswalker</th>
+                                <th>Giocatore</th>
                                 <th>Punti</th>
                             </tr>
                         </thead>
@@ -116,12 +114,12 @@
 
             <!-- Storico Tornei Giocatori -->
             <section class="section-container fade-in table-section">
-                <h2 class="section-title"><i class="fas fa-history magic-icon"></i> Storico Partecipazioni</h2>
+                <h2 class="section-title"><i class="fas fa-history"></i> Storico Partecipazioni</h2>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Planeswalker</th>
+                                <th>Giocatore</th>
                                 <th>Posizioni</th>
                             </tr>
                         </thead>
@@ -144,7 +142,7 @@
     <div id="userProfileModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 id="modalPlayerName">Nome Planeswalker</h2>
+                <h2 id="modalPlayerName">Nome Giocatore</h2>
                 <button onclick="closeUserProfile()" class="modal-close">&times;</button>
             </div>
             
@@ -202,250 +200,314 @@
     <script>
         // Configurazione Firebase
         const firebaseConfig = {
-            apiKey: "AIzaSyBODQaRGGSTwJh8fE8IpJKDDf0LQUrKjkA",
-            authDomain: "lega-dello-stretto-5b0dd.firebaseapp.com",
-            databaseURL: "https://lega-dello-stretto-5b0dd-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "lega-dello-stretto-5b0dd",
-            storageBucket: "lega-dello-stretto-5b0dd.appspot.com",
-            messagingSenderId: "993853728768",
-            appId: "1:993853728768:web:b7089fcd58b7b01d9e9b78"
+            apiKey: "AIzaSyBMMyrXGTm7-6jzRK2xQdp98EcJ6zxVgYI",
+            authDomain: "lega-dello-stretto.firebaseapp.com",
+            databaseURL: "https://lega-dello-stretto-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "lega-dello-stretto",
+            storageBucket: "lega-dello-stretto.firebasestorage.app",
+            messagingSenderId: "340615332224",
+            appId: "1:340615332224:web:6ae9b0c7ca1ac1b1068165"
         };
 
-        // Inizializza Firebase
-        firebase.initializeApp(firebaseConfig);
+        // Inizializzazione Firebase
+        const app = firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
+        let torneiData = {};
 
-        let tuttiIDati = {};
-        let torneoDaVisualizzare = '';
-
-        // Carica tutti i dati all'avvio
-        document.addEventListener('DOMContentLoaded', function() {
-            caricaTuttiIDati();
+        // Toggle tema chiaro/scuro
+        document.getElementById('themeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-theme');
+            const icon = this.querySelector('i');
+            
+            if (icon.classList.contains('fa-moon')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+            
+            // Salva preferenza tema
+            const isDarkTheme = document.body.classList.contains('dark-theme');
+            localStorage.setItem('darkTheme', isDarkTheme);
+        });
+        
+        // Toggle menu mobile
+        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
         });
 
-        function caricaTuttiIDati() {
-            database.ref('/').once('value', (snapshot) => {
-                tuttiIDati = snapshot.val();
-                
-                if (tuttiIDati) {
-                    aggiornaSelectTorneo();
-                    aggiornaPuntiTotali();
-                    aggiornaStoricoTornei();
-                }
-            });
-        }
-
-        function aggiornaSelectTorneo() {
-            const select = document.getElementById('selectTorneo');
-            select.innerHTML = '<option value="" disabled>Seleziona un torneo</option>';
-            
-            for (const torneoId in tuttiIDati) {
-                if (tuttiIDati[torneoId].nomeTorneo && tuttiIDati[torneoId].classifica) {
-                    const option = document.createElement('option');
-                    option.value = torneoId;
-                    option.textContent = tuttiIDati[torneoId].nomeTorneo;
-                    select.appendChild(option);
-                }
-            }
-            
-            // Seleziona automaticamente il primo torneo se disponibile
-            if (select.children.length > 1) {
-                select.selectedIndex = 1;
-                updateClassificaTorneo();
-            }
-        }
-
+        // Funzione per aggiornare la Classifica Torneo
         function updateClassificaTorneo() {
-            const select = document.getElementById('selectTorneo');
-            torneoDaVisualizzare = select.value;
-            
-            if (!torneoDaVisualizzare || !tuttiIDati[torneoDaVisualizzare]) {
-                return;
-            }
-            
-            const tbody = document.getElementById('classificaTorneoBody');
-            tbody.innerHTML = '';
-            
-            const classifica = tuttiIDati[torneoDaVisualizzare].classifica;
-            
-            if (classifica) {
-                Object.keys(classifica).sort((a, b) => {
-                    return parseInt(classifica[a].posizione) - parseInt(classifica[b].posizione);
-                }).forEach(giocatoreId => {
-                    const giocatore = classifica[giocatoreId];
-                    const row = tbody.insertRow();
-                    
-                    row.innerHTML = `
-                        <td class="position-cell">${giocatore.posizione}</td>
-                        <td class="player-cell" onclick="showUserProfile('${giocatore.nome}')">${giocatore.nome}</td>
-                        <td class="points-cell">${giocatore.punti}</td>
+            const torneoId = document.getElementById('selectTorneo').value;
+            const tableBody = document.getElementById('classificaTorneoBody');
+            const linksContainer = document.getElementById('torneoLinks');
+            tableBody.innerHTML = '';
+            linksContainer.innerHTML = '';
+
+            if(torneoId && torneiData[torneoId]) {
+                const torneo = torneiData[torneoId];
+                
+                // Aggiungi il link al bracket Challonge se disponibile
+                if (torneo.linkChallonge) {
+                    linksContainer.innerHTML = `
+                        <a href="${torneo.linkChallonge}" target="_blank" class="challonge-link">
+                            <i class="fas fa-trophy"></i> Visualizza Bracket Challonge
+                        </a>
                     `;
+                }
+                
+                const giocatori = Object.values(torneo.giocatori || {}); 
+                giocatori.sort((a, b) => a.posizione - b.posizione)
+                    .forEach(giocatore => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${giocatore.posizione}°</td>
+                            <td class="player-name" onclick="showUserProfile(null, '${giocatore.nome}')">${giocatore.nome}</td>
+                            <td>${giocatore.punti}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+            }
+        }
+
+        // Funzione per aggiornare lo Storico Giocatori
+        function updateStoricoGiocatori() {
+            const container = document.getElementById('storicoBody');
+            container.innerHTML = '';
+            
+            // Oggetto per memorizzare lo storico partecipazioni
+            const giocatoriStorico = {};
+            
+            // Scorro tutti i tornei e raccolgo le posizioni
+            Object.values(torneiData).forEach(torneo => {
+                // Converti i giocatori in array e ordinali per posizione
+                const giocatoriArray = Object.values(torneo.giocatori || {});
+                giocatoriArray.sort((a, b) => a.posizione - b.posizione);
+                
+                // Assegna posizione corretta a ciascun giocatore
+                giocatoriArray.forEach((giocatore, index) => {
+                    const nome = giocatore.nome;
+                    const posizione = parseInt(giocatore.posizione) || (index + 1);
+                    
+                    // Inizializza l'array delle partecipazioni se è la prima volta
+                    if (!giocatoriStorico[nome]) {
+                        giocatoriStorico[nome] = [];
+                    }
+                    
+                    // Aggiungi questo torneo allo storico del giocatore
+                    giocatoriStorico[nome].push({
+                        torneo: torneo.nome,
+                        posizione: posizione
+                    });
                 });
-            } else {
-                tbody.innerHTML = '<tr><td colspan="3" class="no-data">Nessun dato disponibile per questo torneo</td></tr>';
-            }
-        }
-
-        function aggiornaPuntiTotali() {
-            const tbody = document.getElementById('puntiTotaliBody');
-            tbody.innerHTML = '';
-            
-            const puntiTotali = {};
-            
-            // Calcola i punti totali per ogni giocatore
-            for (const torneoId in tuttiIDati) {
-                const torneo = tuttiIDati[torneoId];
-                if (torneo.classifica) {
-                    for (const giocatoreId in torneo.classifica) {
-                        const giocatore = torneo.classifica[giocatoreId];
-                        const nomeGiocatore = giocatore.nome;
-                        const punti = parseInt(giocatore.punti) || 0;
-                        
-                        if (!puntiTotali[nomeGiocatore]) {
-                            puntiTotali[nomeGiocatore] = 0;
-                        }
-                        puntiTotali[nomeGiocatore] += punti;
-                    }
-                }
-            }
-            
-            // Ordina per punti totali
-            const giocatoriOrdinati = Object.keys(puntiTotali).sort((a, b) => puntiTotali[b] - puntiTotali[a]);
-            
-            giocatoriOrdinati.forEach(nomeGiocatore => {
-                const row = tbody.insertRow();
-                row.innerHTML = `
-                    <td class="player-cell" onclick="showUserProfile('${nomeGiocatore}')">${nomeGiocatore}</td>
-                    <td class="points-cell">${puntiTotali[nomeGiocatore]}</td>
-                `;
             });
             
-            if (giocatoriOrdinati.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="2" class="no-data">Nessun dato disponibile</td></tr>';
-            }
-        }
-
-        function aggiornaStoricoTornei() {
-            const tbody = document.getElementById('storicoBody');
-            tbody.innerHTML = '';
-            
-            const storicoGiocatori = {};
-            
-            // Raccogli tutti i dati storici
-            for (const torneoId in tuttiIDati) {
-                const torneo = tuttiIDati[torneoId];
-                if (torneo.classifica) {
-                    for (const giocatoreId in torneo.classifica) {
-                        const giocatore = torneo.classifica[giocatoreId];
-                        const nomeGiocatore = giocatore.nome;
-                        
-                        if (!storicoGiocatori[nomeGiocatore]) {
-                            storicoGiocatori[nomeGiocatore] = [];
-                        }
-                        storicoGiocatori[nomeGiocatore].push(giocatore.posizione);
-                    }
-                }
-            }
-            
-            // Ordina per numero di partecipazioni
-            const giocatoriOrdinati = Object.keys(storicoGiocatori).sort((a, b) => storicoGiocatori[b].length - storicoGiocatori[a].length);
-            
-            giocatoriOrdinati.forEach(nomeGiocatore => {
-                const posizioni = storicoGiocatori[nomeGiocatore];
-                const row = tbody.insertRow();
+            // Crea una riga per ogni giocatore
+            Object.entries(giocatoriStorico).forEach(([nome, partecipazioni]) => {
+                const row = document.createElement('tr');
+                
+                // Formatta le partecipazioni come solo posizioni
+                const posizioni = partecipazioni.map(p => `${p.posizione}°`).join(' - ');
+                
                 row.innerHTML = `
-                    <td class="player-cell" onclick="showUserProfile('${nomeGiocatore}')">${nomeGiocatore}</td>
-                    <td class="positions-cell">${posizioni.join(', ')}</td>
+                    <td class="player-name" onclick="showUserProfile(null, '${nome}')">${nome}</td>
+                    <td>${posizioni}</td>
                 `;
+                
+                container.appendChild(row);
             });
-            
-            if (giocatoriOrdinati.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="2" class="no-data">Nessun dato disponibile</td></tr>';
-            }
         }
 
-        function showUserProfile(nomeGiocatore) {
-            const modal = document.getElementById('userProfileModal');
-            const modalPlayerName = document.getElementById('modalPlayerName');
-            const statTornei = document.getElementById('statTornei');
-            const statPuntiTotali = document.getElementById('statPuntiTotali');
-            const statMediaPunti = document.getElementById('statMediaPunti');
-            const statMigliorPosizione = document.getElementById('statMigliorPosizione');
-            const playerTournamentHistory = document.getElementById('playerTournamentHistory');
+        // Funzione per aggiornare i Punti Totali
+        function updatePuntiTotali() {
+            const container = document.getElementById('puntiTotaliBody');
+            container.innerHTML = '';
             
-            modalPlayerName.textContent = nomeGiocatore;
+            // Oggetto per memorizzare i punti totali per ogni giocatore
+            const giocatoriPunti = {};
             
-            let torneiPartecipati = 0;
-            let puntiTotali = 0;
-            let migliorPosizione = null;
-            const storicoTornei = [];
+            // Raccolgo tutti i dati dai tornei
+            Object.values(torneiData).forEach(torneo => {
+                // Raccolgo tutti i giocatori di questo torneo
+                Object.values(torneo.giocatori || {}).forEach(giocatore => {
+                    const nome = giocatore.nome;
+                    const punti = parseInt(giocatore.punti) || 0;
+                    
+                    // Se è la prima volta che vedo questo giocatore, inizializzo il contatore
+                    if (!giocatoriPunti[nome]) {
+                        giocatoriPunti[nome] = 0;
+                    }
+                    
+                    // Aggiungo i punti di questo torneo
+                    giocatoriPunti[nome] += punti;
+                });
+            });
+
+            // Creo una riga per ogni giocatore, ordinati per punti totali
+            Object.entries(giocatoriPunti)
+                .sort((a, b) => b[1] - a[1]) // Ordino per punti totali (dal più alto al più basso)
+                .forEach(([nome, punti]) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="player-name" onclick="showUserProfile(null, '${nome}')">${nome}</td>
+                        <td>${punti}</td>
+                    `;
+                    container.appendChild(row);
+                });
+        }
+
+        // Funzione per mostrare il profilo utente
+        function showUserProfile(giocatoreId, giocatoreNome) {
+            // Imposta il nome del giocatore nel modal
+            document.getElementById('modalPlayerName').textContent = giocatoreNome;
             
-            // Calcola le statistiche del giocatore
-            for (const torneoId in tuttiIDati) {
-                const torneo = tuttiIDati[torneoId];
-                if (torneo.classifica) {
-                    for (const giocatoreId in torneo.classifica) {
-                        const giocatore = torneo.classifica[giocatoreId];
-                        if (giocatore.nome === nomeGiocatore) {
-                            torneiPartecipati++;
-                            const punti = parseInt(giocatore.punti) || 0;
+            // Carica i dati del giocatore
+            database.ref('tornei').once('value')
+                .then(snapshot => {
+                    const tornei = snapshot.val() || {};
+                    const storicoTornei = [];
+                    let puntiTotali = 0;
+                    let migliorPosizione = Infinity;
+                    
+                    // Raccogli i dati del giocatore da tutti i tornei
+                    Object.keys(tornei).forEach(torneoId => {
+                        const torneo = tornei[torneoId];
+                        const giocatori = torneo.giocatori || {};
+                        
+                        // Trova il giocatore per NOME invece che per ID
+                        const giocatoriArray = Object.values(giocatori);
+                        const matchingGiocatori = giocatoriArray.filter(g => g.nome === giocatoreNome);
+                        
+                        matchingGiocatori.forEach(giocatore => {
+                            const punti = giocatore.punti || 0;
                             puntiTotali += punti;
                             
-                            const posizione = parseInt(giocatore.posizione);
-                            if (migliorPosizione === null || posizione < migliorPosizione) {
+                            // Calcola la posizione del giocatore in questo torneo
+                            const posizione = giocatore.posizione || 0;
+                            
+                            if (posizione > 0 && posizione < migliorPosizione) {
                                 migliorPosizione = posizione;
                             }
                             
                             storicoTornei.push({
-                                nome: torneo.nomeTorneo || torneoId,
-                                data: torneo.data || 'N/A',
+                                torneoId: torneoId,
+                                torneoNome: torneo.nome,
+                                data: torneo.creatoIl || '',
                                 posizione: posizione,
                                 punti: punti,
-                                partecipanti: Object.keys(torneo.classifica).length
+                                partecipanti: giocatoriArray.length
                             });
-                        }
+                        });
+                    });
+                    
+                    // Ordina lo storico per data (più recenti prima)
+                    storicoTornei.sort((a, b) => {
+                        return new Date(b.data) - new Date(a.data);
+                    });
+                    
+                    // Aggiorna le statistiche
+                    document.getElementById('statTornei').textContent = storicoTornei.length;
+                    document.getElementById('statPuntiTotali').textContent = puntiTotali;
+                    document.getElementById('statMediaPunti').textContent = storicoTornei.length > 0 ? 
+                        Math.round(puntiTotali / storicoTornei.length) : 0;
+                    document.getElementById('statMigliorPosizione').textContent = 
+                        migliorPosizione !== Infinity ? `${migliorPosizione}°` : '-';
+                    
+                    // Aggiorna la tabella dello storico tornei
+                    const tbody = document.getElementById('playerTournamentHistory');
+                    
+                    if (storicoTornei.length === 0) {
+                        tbody.innerHTML = `<tr><td colspan="5" class="no-data">Nessun torneo giocato</td></tr>`;
+                        return;
                     }
-                }
-            }
-            
-            // Aggiorna le statistiche nel modal
-            statTornei.textContent = torneiPartecipati;
-            statPuntiTotali.textContent = puntiTotali;
-            statMediaPunti.textContent = torneiPartecipati > 0 ? (puntiTotali / torneiPartecipati).toFixed(1) : '0';
-            statMigliorPosizione.textContent = migliorPosizione !== null ? migliorPosizione : '-';
-            
-            // Popola la tabella dello storico
-            playerTournamentHistory.innerHTML = '';
-            storicoTornei.sort((a, b) => new Date(b.data) - new Date(a.data)).forEach(torneo => {
-                const row = playerTournamentHistory.insertRow();
-                row.innerHTML = `
-                    <td>${torneo.nome}</td>
-                    <td>${torneo.data}</td>
-                    <td>${torneo.posizione}</td>
-                    <td>${torneo.punti}</td>
-                    <td>${torneo.partecipanti}</td>
-                `;
-            });
-            
-            if (storicoTornei.length === 0) {
-                playerTournamentHistory.innerHTML = '<tr><td colspan="5" class="no-data">Nessun torneo trovato</td></tr>';
-            }
-            
-            modal.style.display = 'block';
+                    
+                    tbody.innerHTML = '';
+                    storicoTornei.forEach(torneo => {
+                        const row = document.createElement('tr');
+                        const data = torneo.data ? new Date(torneo.data).toLocaleDateString() : '-';
+                        
+                        row.innerHTML = `
+                            <td>${torneo.torneoNome}</td>
+                            <td>${data}</td>
+                            <td>${torneo.posizione}°</td>
+                            <td>${torneo.punti}</td>
+                            <td>${torneo.partecipanti}</td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                    
+                    // Mostra il modal
+                    document.getElementById('userProfileModal').style.display = 'flex';
+                })
+                .catch(error => {
+                    console.error("Errore nel caricamento del profilo:", error);
+                    alert("Errore nel caricamento del profilo utente");
+                });
         }
 
+        // Funzione per chiudere il profilo utente
         function closeUserProfile() {
-            const modal = document.getElementById('userProfileModal');
-            modal.style.display = 'none';
+            document.getElementById('userProfileModal').style.display = 'none';
         }
 
-        // Chiudi il modal cliccando fuori da esso
-        window.onclick = function(event) {
-            const modal = document.getElementById('userProfileModal');
-            if (event.target === modal) {
-                modal.style.display = 'none';
+        // Inizializzazione all'avvio
+        function init() {
+            // Ripristina il tema salvato
+            if (localStorage.getItem('darkTheme') === 'true') {
+                document.body.classList.add('dark-theme');
+                document.querySelector('#themeToggle i').classList.remove('fa-moon');
+                document.querySelector('#themeToggle i').classList.add('fa-sun');
             }
+            
+            // Carica i dati dei tornei da Firebase
+            database.ref('tornei').once('value')
+                .then(snapshot => {
+                    torneiData = snapshot.val() || {};
+                    
+                    // Popola il dropdown dei tornei
+                    const select = document.getElementById('selectTorneo');
+                    select.innerHTML = '<option value="" disabled selected>Seleziona Torneo</option>';
+                    
+                    // Converti in array e ordina per data (più recenti prima)
+                    Object.entries(torneiData)
+                        .sort((a, b) => {
+                            const dateA = a[1].creatoIl ? new Date(a[1].creatoIl) : new Date(0);
+                            const dateB = b[1].creatoIl ? new Date(b[1].creatoIl) : new Date(0);
+                            return dateB - dateA;
+                        })
+                        .forEach(([id, torneo]) => {
+                            const option = document.createElement('option');
+                            option.value = id;
+                            option.textContent = torneo.nome;
+                            select.appendChild(option);
+                        });
+                    
+                    // Seleziona il primo torneo di default (se esiste)
+                    if (select.options.length > 1) {
+                        select.selectedIndex = 1;
+                    }
+                    
+                    // Inizializza le tabelle con i dati
+                    updateClassificaTorneo();
+                    updateStoricoGiocatori();
+                    updatePuntiTotali();
+                })
+                .catch(error => {
+                    console.error("Errore nel caricamento dei dati:", error);
+                    document.querySelectorAll('.loading-cell').forEach(el => {
+                        el.innerHTML = `
+                            <div class="error-message">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <p>Errore nel caricamento dei dati</p>
+                            </div>
+                        `;
+                    });
+                });
         }
+
+        // Inizializza la pagina quando il DOM è caricato
+        document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
 </html> 
