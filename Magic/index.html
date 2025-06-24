@@ -24,10 +24,10 @@
     <!-- Header -->
     <header class="main-header" id="header">
         <div class="container">
-            <div class="header-content">
-                <div class="logo">
+            <div class="header-container">
+                <div class="logo-container">
                     <img src="magic-logo.png" alt="Magic: The Gathering Lega dello Stretto" class="logo-img">
-                    <span class="logo-text">Lega dello Stretto</span>
+                    <span class="site-title">Magic: The Gathering</span>
                 </div>
                 <nav class="main-nav" id="mainNav">
                     <ul class="nav-list">
@@ -56,34 +56,25 @@
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Magic: The Gathering</h1>
-            <p class="hero-subtitle">Lega dello Stretto di Messina</p>
-            <p class="hero-description">
-                Entra nel Multiverso di Magic! Partecipa ai tornei ufficiali MTG, 
-                scala la classifica regionale e diventa il Planeswalker più potente dello Stretto di Messina.
-            </p>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <span class="stat-number" id="playersCount">92</span>
-                    <span class="stat-label">Planeswalker</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" id="tournamentsCount">22</span>
-                    <span class="stat-label">Tornei</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" id="citiesCount">3</span>
-                    <span class="stat-label">Città</span>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Magic: The Gathering</h1>
+                <p class="hero-subtitle">Lega dello Stretto di Messina</p>
+                <p class="hero-description">
+                    Entra nel Multiverso di Magic! Partecipa ai tornei ufficiali MTG, 
+                    scala la classifica regionale e diventa il Planeswalker più potente dello Stretto di Messina.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#tournaments" class="btn btn-primary">
+                        <i class="fas fa-hat-wizard"></i>
+                        Inizia l'Avventura
+                    </a>
+                    <a href="regolamento.html" class="btn btn-secondary">
+                        <i class="fas fa-scroll"></i>
+                        Regolamento
+                    </a>
                 </div>
             </div>
-            <a href="#tournaments" class="cta-button">
-                <i class="fas fa-hat-wizard"></i>
-                Inizia l'Avventura
-            </a>
-        </div>
-        <div class="hero-image">
-            <img src="Header.png" alt="Magic: The Gathering Lega dello Stretto" class="hero-img">
         </div>
     </section>
 
@@ -98,7 +89,6 @@
                     </div>
                     <div class="stat-number" id="totalPlayers">92</div>
                     <div class="stat-label">Planeswalker Registrati</div>
-                    <div class="stat-description">La community di maghi più attiva della Sicilia</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">
@@ -106,7 +96,6 @@
                     </div>
                     <div class="stat-number" id="totalTournaments">22</div>
                     <div class="stat-label">Tornei Organizzati</div>
-                    <div class="stat-description">Eventi ufficiali con ranking WPN</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">
@@ -114,7 +103,6 @@
                     </div>
                     <div class="stat-number" id="totalCities">3</div>
                     <div class="stat-label">Città Coinvolte</div>
-                    <div class="stat-description">Messina, Reggio Calabria e provincia</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">
@@ -122,68 +110,67 @@
                     </div>
                     <div class="stat-number">16</div>
                     <div class="stat-label">Tornei Mensili</div>
-                    <div class="stat-description">Due tornei ogni mese per tutto l'anno</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features-section" id="features">
+    <section class="section" id="features">
         <div class="container">
             <h2 class="section-title">Perché Scegliere la Lega Magic dello Stretto</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
+            <div class="events-grid">
+                <div class="card">
+                    <div class="stat-icon">
                         <i class="fas fa-certificate"></i>
                     </div>
-                    <h3 class="feature-title">Tornei Ufficiali WPN</h3>
-                    <p class="feature-description">
+                    <h3 class="card-title">Tornei Ufficiali WPN</h3>
+                    <p class="card-text">
                         Partecipa a tornei ufficiali riconosciuti da Wizards of the Coast con ranking PWP e qualificazioni per eventi superiori.
                     </p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
+                <div class="card">
+                    <div class="stat-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3 class="feature-title">Community Attiva</h3>
-                    <p class="feature-description">
+                    <h3 class="card-title">Community Attiva</h3>
+                    <p class="card-text">
                         Unisciti a oltre 92 Planeswalker appassionati. Condividi strategie, deck brewing e fai nuove amicizie.
                     </p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
+                <div class="card">
+                    <div class="stat-icon">
                         <i class="fas fa-medal"></i>
                     </div>
-                    <h3 class="feature-title">Sistema di Ranking</h3>
-                    <p class="feature-description">
+                    <h3 class="card-title">Sistema di Ranking</h3>
+                    <p class="card-text">
                         Scala la classifica regionale attraverso i punti torneo e conquista il titolo di Arcimago.
                     </p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
+                <div class="card">
+                    <div class="stat-icon">
                         <i class="fas fa-gift"></i>
                     </div>
-                    <h3 class="feature-title">Premi Esclusivi</h3>
-                    <p class="feature-description">
+                    <h3 class="card-title">Premi Esclusivi</h3>
+                    <p class="card-text">
                         Vinci premi ufficiali WotC, card promozionali esclusive e planeswalker foil per i migliori giocatori.
                     </p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
+                <div class="card">
+                    <div class="stat-icon">
                         <i class="fas fa-chalkboard-teacher"></i>
                     </div>
-                    <h3 class="feature-title">Supporto per Principianti</h3>
-                    <p class="feature-description">
+                    <h3 class="card-title">Supporto per Principianti</h3>
+                    <p class="card-text">
                         Corsi gratuiti di deck building, metagame analysis e strategie competitive per migliorare il tuo gioco.
                     </p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
+                <div class="card">
+                    <div class="stat-icon">
                         <i class="fas fa-calendar-week"></i>
                     </div>
-                    <h3 class="feature-title">Eventi Regolari</h3>
-                    <p class="feature-description">
+                    <h3 class="card-title">Eventi Regolari</h3>
+                    <p class="card-text">
                         Draft mensili, tornei Standard, Commander nights e Pre-release per giocare sempre con la community.
                     </p>
                 </div>
@@ -192,40 +179,40 @@
     </section>
 
     <!-- Events Section -->
-    <section class="events" id="events">
+    <section class="events-section" id="events">
         <div class="container">
             <h2 class="section-title">Prossimi Tornei</h2>
-            <div class="events-container" id="eventsContainer">
+            <div class="events-grid" id="eventsContainer">
                 <div class="event-card loading">
                     <div class="loading-spinner">
                         <i class="fas fa-spinner fa-spin"></i> Caricamento eventi...
                     </div>
                 </div>
             </div>
-            <div class="events-action">
-                <a href="eventi.html" class="btn view-all">Vedi Tutti gli Eventi</a>
+            <div class="text-center">
+                <a href="eventi.html" class="btn btn-primary">Vedi Tutti gli Eventi</a>
             </div>
         </div>
     </section>
 
     <!-- Rankings Section -->
-    <section class="rankings" id="rankings">
+    <section class="section" id="rankings">
         <div class="container">
             <h2 class="section-title">Classifiche</h2>
-            <div class="rankings-container">
-                <div class="ranking-box">
-                    <h3 class="ranking-title">Top Players Regionali</h3>
-                    <div class="ranking-list" id="topPlayersRanking">
-                        <div class="ranking-item loading">
+            <div class="events-grid">
+                <div class="card">
+                    <h3 class="card-title">Top Players Regionali</h3>
+                    <div class="card-text" id="topPlayersRanking">
+                        <div class="loading">
                             <i class="fas fa-spinner"></i> Caricamento classifica...
                         </div>
                     </div>
                     <a href="classifica.html" class="btn btn-primary">Classifica Completa</a>
                 </div>
-                <div class="ranking-box">
-                    <h3 class="ranking-title">Qualificati</h3>
-                    <div class="ranking-list" id="qualificatiList">
-                        <div class="ranking-item loading">
+                <div class="card">
+                    <h3 class="card-title">Qualificati</h3>
+                    <div class="card-text" id="qualificatiList">
+                        <div class="loading">
                             <i class="fas fa-spinner"></i> Caricamento qualificati...
                         </div>
                     </div>
@@ -236,31 +223,31 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="section">
         <div class="container">
             <h2 class="section-title">Contatti</h2>
-            <p class="section-description">Hai domande o vuoi partecipare ai nostri tornei? Contattaci!</p>
+            <p class="text-center mb-lg">Hai domande o vuoi partecipare ai nostri tornei? Contattaci!</p>
             
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="contact-item">
+            <div class="events-grid">
+                <div class="card">
+                    <div class="stat-icon text-center">
                         <i class="fas fa-envelope"></i>
-                        <p>redshiftg@gmail.com</p>
                     </div>
-                    <div class="contact-item">
+                    <p class="text-center">redshiftg@gmail.com</p>
+                    <div class="stat-icon text-center">
                         <i class="fas fa-phone"></i>
-                        <p>+39 328 724 1502</p>
                     </div>
-                    <div class="contact-item">
+                    <p class="text-center">+39 328 724 1502</p>
+                    <div class="stat-icon text-center">
                         <i class="fas fa-map-marker-alt"></i>
-                        <p>Via Nicola Fabrizi 11, Messina</p>
                     </div>
-                    <div class="contact-item">
+                    <p class="text-center">Via Nicola Fabrizi 11, Messina</p>
+                    <div class="stat-icon text-center">
                         <i class="fas fa-clock"></i>
-                        <p>Mar-Dom: 17:00-01:00<br>Lun: Chiuso</p>
                     </div>
+                    <p class="text-center">Mar-Dom: 17:00-01:00<br>Lun: Chiuso</p>
                 </div>
-                <div class="contact-form">
+                <div class="card">
                     <form id="contactForm" action="https://formspree.io/f/mzzrdrwe" method="POST">
                         <input type="hidden" name="_subject" value="Nuovo messaggio dal sito Lega dello Stretto (Homepage)">
                         <input type="hidden" name="_next" value="index.html?contact_success=true">
@@ -403,7 +390,7 @@
         
         // Run animations when elements are in viewport
         function handleScrollAnimations() {
-            const elements = document.querySelectorAll('.feature-card, .event-card, .ranking-box');
+            const elements = document.querySelectorAll('.card');
             
             elements.forEach(element => {
                 const position = element.getBoundingClientRect();
@@ -468,7 +455,7 @@
             // Se non ci sono giocatori
             if (giocatoriOrdinati.length === 0) {
                 container.innerHTML = `
-                    <div class="ranking-item no-data">
+                    <div class="loading">
                         Nessun dato disponibile
                     </div>
                 `;
@@ -478,7 +465,7 @@
             // Genero la classifica
             giocatoriOrdinati.forEach(([nome, punti], index) => {
                 const item = document.createElement('div');
-                item.className = 'ranking-item';
+                item.className = 'loading';
                 item.innerHTML = `
                     <span class="ranking-position">${index + 1}</span>
                     <span class="ranking-player">${nome}</span>
@@ -510,7 +497,7 @@
             // Se non ci sono qualificati
             if (qualificati.length === 0) {
                 container.innerHTML = `
-                    <div class="ranking-item no-data">
+                    <div class="loading">
                         Nessun giocatore qualificato
                     </div>
                 `;
@@ -520,7 +507,7 @@
             // Limita a 5 qualificati
             qualificati.slice(0, 5).forEach((q, index) => {
                 const item = document.createElement('div');
-                item.className = 'ranking-item';
+                item.className = 'loading';
                 item.innerHTML = `
                     <span class="ranking-position">${index + 1}</span>
                     <span class="ranking-player">${q.nome}</span>
@@ -708,27 +695,27 @@
                 
                 if (topPlayersContainer) {
                     topPlayersContainer.innerHTML = `
-                        <div class="ranking-item">
+                        <div class="loading">
                             <span class="ranking-position">1</span>
                             <span class="ranking-player">Salvatore Morabito</span>
                             <span class="ranking-points">780 pt</span>
                         </div>
-                        <div class="ranking-item">
+                        <div class="loading">
                             <span class="ranking-position">2</span>
                             <span class="ranking-player">Giuseppe Bernava</span>
                             <span class="ranking-points">620 pt</span>
                         </div>
-                        <div class="ranking-item">
+                        <div class="loading">
                             <span class="ranking-position">3</span>
                             <span class="ranking-player">Francesco Rizzo</span>
                             <span class="ranking-points">580 pt</span>
                         </div>
-                        <div class="ranking-item">
+                        <div class="loading">
                             <span class="ranking-position">4</span>
                             <span class="ranking-player">Antonio Donato</span>
                             <span class="ranking-points">490 pt</span>
                         </div>
-                        <div class="ranking-item">
+                        <div class="loading">
                             <span class="ranking-position">5</span>
                             <span class="ranking-player">Marco Carbone</span>
                             <span class="ranking-points">450 pt</span>
@@ -738,27 +725,27 @@
                 
                 if (qualificatiContainer) {
                     qualificatiContainer.innerHTML = `
-                        <div class="ranking-item">
+                        <div class="loading">
                             <span class="ranking-position">1</span>
                             <span class="ranking-player">Salvatore Morabito</span>
                             <span class="ranking-points">Regionale Messina</span>
                         </div>
-                        <div class="ranking-item">
+                        <div class="loading">
                             <span class="ranking-position">2</span>
                             <span class="ranking-player">Giuseppe Bernava</span>
                             <span class="ranking-points">Championship</span>
                         </div>
-                        <div class="ranking-item">
+                        <div class="loading">
                             <span class="ranking-position">3</span>
                             <span class="ranking-player">Francesco Rizzo</span>
                             <span class="ranking-points">Reggio Calabria</span>
                         </div>
-                        <div class="ranking-item">
+                        <div class="loading">
                             <span class="ranking-position">4</span>
                             <span class="ranking-player">Antonio Donato</span>
                             <span class="ranking-points">Regionale Messina</span>
                         </div>
-                        <div class="ranking-item">
+                        <div class="loading">
                             <span class="ranking-position">5</span>
                             <span class="ranking-player">Marco Carbone</span>
                             <span class="ranking-points">Championship</span>
