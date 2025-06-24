@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contatti - Lega dello Stretto: entra in contatto con noi per informazioni su tornei, eventi e community TCG">
+    <title>Contatti - Lega dello Stretto</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@400;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS personalizzato -->
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #1d3557;
+            --accent-color: #ffbd00;
+            --text-color: #E0E0E0;
+            --text-light: #f1faee;
+            --background-color: #121212;
+            --card-color: #1E1E1E;
+            --border-color: #333;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --transition-speed: 0.3s;
+            --border-radius: 16px;
+            --box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --font-primary: 'Nunito', sans-serif;
+            --font-logo: 'Righteous', cursive;
+        }
+
+        body.light-theme {
+            --text-color: #212529;
+            --background-color: #f1faee;
+            --card-color: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color var(--transition-speed) ease;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        .main-header {
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px var(--shadow-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .light-theme .main-header {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-text {
+            font-family: var(--font-logo);
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-speed) ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all var(--transition-speed) ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.4) 0%, rgba(30, 30, 30, 0.5) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-family: var(--font-logo);
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 4rem 0;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: var(--font-logo);
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            background: var(--card-color);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: var(--box-shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-form {
+            background: var(--card-color);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: var(--box-shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(230, 57, 70, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(230, 57, 70, 0.2);
+            transition: all var(--transition-speed) ease;
+        }
+
+        .contact-method:hover {
+            transform: translateX(5px);
+            background: rgba(230, 57, 70, 0.15);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details p {
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .contact-details a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .contact-details a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--background-color);
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(230, 57, 70, 0.3);
+        }
+
+        /* Social Media Section */
+        .social-section {
+            background: var(--card-color);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            margin: 3rem 0;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-card {
+            background: rgba(230, 57, 70, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: all var(--transition-speed) ease;
+            border: 1px solid rgba(230, 57, 70, 0.2);
+        }
+
+        .social-card:hover {
+            transform: translateY(-5px);
+            background: rgba(230, 57, 70, 0.15);
+        }
+
+        .social-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .social-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .social-card p {
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        .social-link {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-speed) ease;
+            display: inline-block;
+        }
+
+        .social-link:hover {
+            background: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        /* Location Section */
+        .location-section {
+            background: var(--card-color);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            margin: 3rem 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .location-card {
+            background: rgba(230, 57, 70, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            border: 1px solid rgba(230, 57, 70, 0.2);
+            transition: all var(--transition-speed) ease;
+        }
+
+        .location-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .location-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .location-card p {
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        .main-footer {
+            background: var(--card-color);
+            padding: 3rem 0 2rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-title {
+            font-family: var(--font-logo);
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-description {
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .footer-link:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .location-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .form-success {
+            background: #28a745;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .form-error {
+            background: #dc3545;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo-container">
+                <div class="logo-text">Lega dello Stretto</div>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
+                <a href="contatti.html" class="nav-link active">Contatti</a>
+                <a href="regolamento.html" class="nav-link">Regolamento</a>
+                <a href="privacy.html" class="nav-link">Privacy</a>
+            </nav>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title">Contatti</h1>
+                <p class="hero-subtitle">Entra in contatto con la Lega dello Stretto</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Contact Section -->
+            <section class="section fade-in">
+                <h2 class="section-title">Come Contattarci</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email Principale</h3>
+                                <p>Per informazioni generali, iscrizioni e supporto</p>
+                                <a href="mailto:redshiftg@gmail.com">redshiftg@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Telefono</h3>
+                                <p>Disponibili dal lunedì al venerdì, 15:00 - 20:00</p>
+                                <a href="tel:+393805929354">+39 380 592 9354</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>WhatsApp</h3>
+                                <p>Risposta rapida per informazioni urgenti</p>
+                                <a href="https://wa.me/393805929354">+39 380 592 9354</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Tornei & Eventi</h3>
+                                <p>Per iscrizioni e informazioni sui tornei</p>
+                                <a href="mailto:redshiftg@gmail.com">redshiftg@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1.5rem; text-align: center;">Invia un Messaggio</h3>
+                        <form id="contactForm" action="https://formspree.io/f/mzzrdrwe" method="POST">
+                            <!-- Campi di configurazione Formspree -->
+                            <input type="hidden" name="_subject" value="Nuovo messaggio dal sito Lega dello Stretto">
+                            <input type="hidden" name="_next" value="contatti.html?success=true">
+                            
+                            <div class="form-group">
+                                <label for="name">Nome Completo</label>
+                                <input type="text" id="name" name="nome" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Oggetto</label>
+                                <select id="subject" name="oggetto" required>
+                                    <option value="">Seleziona un oggetto</option>
+                                    <option value="info-generali">Informazioni Generali</option>
+                                    <option value="iscrizione-torneo">Iscrizione Tornei</option>
+                                    <option value="partnership">Partnership</option>
+                                    <option value="supporto-tecnico">Supporto Tecnico</option>
+                                    <option value="feedback">Feedback e Suggerimenti</option>
+                                    <option value="altro">Altro</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="game">Gioco di Interesse</label>
+                                <select id="game" name="gioco">
+                                    <option value="">Seleziona un gioco (opzionale)</option>
+                                    <option value="one-piece">One Piece TCG</option>
+                                    <option value="yugioh">Yu-Gi-Oh!</option>
+                                    <option value="magic">Magic: The Gathering</option>
+                                    <option value="tutti">Tutti i giochi</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Messaggio</label>
+                                <textarea id="message" name="messaggio" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-container" style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" name="privacy_accepted" required style="margin: 0;">
+                                    Ho letto e accetto la <a href="privacy.html" style="color: var(--primary-color);">Privacy Policy</a>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn-submit">
+                                <i class="fas fa-paper-plane"></i> Invia Messaggio
+                            </button>
+                        </form>
+                        
+                        <!-- Messaggio di conferma nascosto inizialmente -->
+                        <div id="confirmationMessage" style="display: none; margin-top: 2rem; padding: 1.5rem; background-color: #28a745; color: white; border-radius: 8px; text-align: center;">
+                            <i class="fas fa-check-circle" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                            <h3 style="margin-bottom: 0.5rem;">Messaggio Inviato!</h3>
+                            <p>Grazie per averci contattato. Ti risponderemo il prima possibile.</p>
+                        </div>
+                        
+                        <!-- Messaggio di errore nascosto inizialmente -->
+                        <div id="errorMessage" style="display: none; margin-top: 2rem; padding: 1.5rem; background-color: #dc3545; color: white; border-radius: 8px; text-align: center;">
+                            <i class="fas fa-exclamation-circle" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                            <h3 style="margin-bottom: 0.5rem;">Errore di invio</h3>
+                            <p>Si è verificato un errore durante l'invio del messaggio. Per favore riprova più tardi o contattaci direttamente via email o telefono.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Social Media Section -->
+            <section class="section fade-in">
+                <div class="social-section">
+                    <h2 class="section-title">Seguici sui Social</h2>
+                    <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">
+                        Resta aggiornato su tutti i nostri eventi, tornei e novità!
+                    </p>
+                    <div class="social-grid">
+                        <div class="social-card">
+                            <div class="social-icon">
+                                <i class="fab fa-discord"></i>
+                            </div>
+                            <h3>Discord</h3>
+                            <p>Il nostro server principale per la community</p>
+                            <a href="#" class="social-link">Unisciti al Server</a>
+                        </div>
+
+                        <div class="social-card">
+                            <div class="social-icon">
+                                <i class="fab fa-facebook"></i>
+                            </div>
+                            <h3>Facebook</h3>
+                            <p>Eventi, foto e aggiornamenti sulla pagina ufficiale</p>
+                            <a href="#" class="social-link">Segui la Pagina</a>
+                        </div>
+
+                        <div class="social-card">
+                            <div class="social-icon">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <h3>Instagram</h3>
+                            <p>Foto dai tornei e momenti della community</p>
+                            <a href="#" class="social-link">Seguici</a>
+                        </div>
+
+                        <div class="social-card">
+                            <div class="social-icon">
+                                <i class="fab fa-telegram"></i>
+                            </div>
+                            <h3>Telegram</h3>
+                            <p>Gruppo per comunicazioni rapide e aggiornamenti</p>
+                            <a href="#" class="social-link">Entra nel Gruppo</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Location Section -->
+            <section class="section fade-in">
+                <div class="location-section">
+                    <h2 class="section-title">Le Nostra Sede</h2>
+                    <div class="location-grid">
+                        <div class="location-card">
+                            <h3><i class="fas fa-map-marker-alt"></i> Messina Centro</h3>
+                            <p><strong>RedShift Gaming Messina</strong></p>
+                            <p>Via Nicola Fabrizi, 11 - 98122 Messina (ME)</p>
+                            <p><strong>Orari:</strong> Mar-Dom 17:00-01:00</p>
+                            <p><strong>Tel:</strong> +39 380 592 9354</p>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <h3 class="footer-title">Lega dello Stretto</h3>
+            <p class="footer-description">
+                La tua destinazione per i giochi di carte collezionabili più amati al mondo.
+            </p>
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">Home</a>
+                <a href="chi-siamo.html" class="footer-link">Chi Siamo</a>
+                <a href="contatti.html" class="footer-link">Contatti</a>
+                <a href="regolamento.html" class="footer-link">Regolamento</a>
+                <a href="privacy.html" class="footer-link">Privacy</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Lega dello Stretto. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+
+        // Carica il tema salvato
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        if (savedTheme === 'light') {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('dark-theme')) {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Animazioni al scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Contact Form Handler
+        const contactForm = document.getElementById('contactForm');
+        const confirmationMessage = document.getElementById('confirmationMessage');
+        const errorMessage = document.getElementById('errorMessage');
+        
+        // Gestione form con Formspree
+        contactForm.addEventListener('submit', function(e) {
+            // La validazione viene gestita dai campi required
+            // Formspree si occuperà dell'invio
+            
+            // Disabilita il pulsante per evitare invii multipli
+            const submitButton = this.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Invio in corso...';
+            
+            // Formspree gestirà il resto (non serve preventDefault)
+            // Il browser si occuperà di inviare il form a Formspree
+        });
+        
+        // Controllo se c'è un messaggio di successo nell'URL (reindirizzamento da Formspree)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Se c'è "success=true" nell'URL, mostra il messaggio di conferma
+            if (window.location.search.includes('success=true')) {
+                contactForm.style.display = 'none';
+                errorMessage.style.display = 'none';
+                confirmationMessage.style.display = 'block';
+                confirmationMessage.scrollIntoView({behavior: 'smooth'});
+            }
+            // Se c'è "error=true" nell'URL, mostra il messaggio di errore
+            else if (window.location.search.includes('error=true')) {
+                errorMessage.style.display = 'block';
+                confirmationMessage.style.display = 'none';
+                errorMessage.scrollIntoView({behavior: 'smooth'});
+            }
+        });
+    </script>
+</body>
+</html> 

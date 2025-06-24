@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Regolamento - Lega dello Stretto: regole, norme e linee guida per tornei e partecipazione">
+    <title>Regolamento - Lega dello Stretto</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@400;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS personalizzato -->
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #1d3557;
+            --accent-color: #ffbd00;
+            --text-color: #E0E0E0;
+            --text-light: #f1faee;
+            --background-color: #121212;
+            --card-color: #1E1E1E;
+            --border-color: #333;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --transition-speed: 0.3s;
+            --border-radius: 16px;
+            --box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --font-primary: 'Nunito', sans-serif;
+            --font-logo: 'Righteous', cursive;
+        }
+
+        body.light-theme {
+            --text-color: #212529;
+            --background-color: #f1faee;
+            --card-color: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color var(--transition-speed) ease;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        .main-header {
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px var(--shadow-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .light-theme .main-header {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-text {
+            font-family: var(--font-logo);
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-speed) ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all var(--transition-speed) ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.4) 0%, rgba(30, 30, 30, 0.5) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-family: var(--font-logo);
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 4rem 0;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: var(--font-logo);
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: var(--card-color);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--box-shadow);
+        }
+
+        .toc h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .toc-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc-link {
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            transition: all var(--transition-speed) ease;
+            border: 1px solid transparent;
+        }
+
+        .toc-link:hover {
+            background: rgba(230, 57, 70, 0.1);
+            border-color: rgba(230, 57, 70, 0.3);
+            color: var(--primary-color);
+        }
+
+        /* Rule Cards */
+        .rule-card {
+            background: var(--card-color);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--box-shadow);
+            scroll-margin-top: 120px;
+        }
+
+        .rule-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .rule-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .rule-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .rule-content h4 {
+            color: var(--primary-color);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .rule-content ul, .rule-content ol {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .rule-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .rule-content p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .highlight-box {
+            background: rgba(230, 57, 70, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning-box {
+            background: rgba(255, 193, 7, 0.1);
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .success-box {
+            background: rgba(40, 167, 69, 0.1);
+            border-left: 4px solid #28a745;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Footer */
+        .main-footer {
+            background: var(--card-color);
+            padding: 3rem 0 2rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-title {
+            font-family: var(--font-logo);
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-description {
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .footer-link:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .toc-list {
+                grid-template-columns: 1fr;
+            }
+
+            .rule-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo-container">
+                <div class="logo-text">Lega dello Stretto</div>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
+                <a href="contatti.html" class="nav-link">Contatti</a>
+                <a href="regolamento.html" class="nav-link active">Regolamento</a>
+                <a href="privacy.html" class="nav-link">Privacy</a>
+            </nav>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title">Regolamento</h1>
+                <p class="hero-subtitle">Regole e linee guida per la partecipazione</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Table of Contents -->
+            <section class="section fade-in">
+                <div class="toc">
+                    <h3><i class="fas fa-list"></i> Indice dei Contenuti</h3>
+                    <ul class="toc-list">
+                        <li class="toc-item">
+                            <a href="#norme-generali" class="toc-link">
+                                <i class="fas fa-gavel"></i> Norme Generali
+                            </a>
+                        </li>
+                        <li class="toc-item">
+                            <a href="#iscrizione-tornei" class="toc-link">
+                                <i class="fas fa-user-plus"></i> Iscrizione ai Tornei
+                            </a>
+                        </li>
+                        <li class="toc-item">
+                            <a href="#regole-tornei" class="toc-link">
+                                <i class="fas fa-trophy"></i> Regole dei Tornei
+                            </a>
+                        </li>
+                        <li class="toc-item">
+                            <a href="#condotta-comportamento" class="toc-link">
+                                <i class="fas fa-handshake"></i> Condotta e Comportamento
+                            </a>
+                        </li>
+                        <li class="toc-item">
+                            <a href="#sanzioni-penalita" class="toc-link">
+                                <i class="fas fa-exclamation-triangle"></i> Sanzioni e Penalità
+                            </a>
+                        </li>
+                        <li class="toc-item">
+                            <a href="#regole-specifiche" class="toc-link">
+                                <i class="fas fa-cards-blank"></i> Regole Specifiche per Gioco
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Norme Generali -->
+            <section class="section fade-in" id="norme-generali">
+                <div class="rule-card">
+                    <div class="rule-header">
+                        <div class="rule-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h2 class="rule-title">Norme Generali</h2>
+                    </div>
+                    <div class="rule-content">
+                        <div class="highlight-box">
+                            <p><strong>La Lega dello Stretto</strong> è un'organizzazione dedicata alla promozione e allo sviluppo dei giochi di carte collezionabili nel territorio dello Stretto di Messina.</p>
+                        </div>
+
+                        <h4><i class="fas fa-users"></i> Adesione alla Lega</h4>
+                        <ul>
+                            <li>L'adesione è <strong>gratuita</strong> e aperta a tutti i giocatori maggiori di 8 anni</li>
+                            <li>I minori di 16 anni devono essere accompagnati da un genitore o tutore durante i tornei</li>
+                            <li>È necessario fornire dati personali veritieri per la registrazione</li>
+                            <li>Ogni giocatore può partecipare con un solo account/profilo</li>
+                        </ul>
+
+                        <h4><i class="fas fa-shield-alt"></i> Diritti dei Membri</h4>
+                        <ul>
+                            <li>Partecipazione a tutti i tornei e gli eventi organizzati</li>
+                            <li>Accesso alle classifiche e ai ranking ufficiali</li>
+                            <li>Supporto e assistenza da parte dello staff</li>
+                            <li>Possibilità di presentare reclami e ricorsi</li>
+                        </ul>
+
+                        <h4><i class="fas fa-clipboard-list"></i> Doveri dei Membri</h4>
+                        <ul>
+                            <li>Rispettare il presente regolamento</li>
+                            <li>Mantenere un comportamento corretto e sportivo</li>
+                            <li>Rispettare gli avversari, l'organizzazione e i giudici</li>
+                            <li>Aggiornare i propri dati personali in caso di modifiche</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Iscrizione ai Tornei -->
+            <section class="section fade-in" id="iscrizione-tornei">
+                <div class="rule-card">
+                    <div class="rule-header">
+                        <div class="rule-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h2 class="rule-title">Iscrizione ai Tornei</h2>
+                    </div>
+                    <div class="rule-content">
+                        <h4><i class="fas fa-calendar-plus"></i> Modalità di Iscrizione</h4>
+                        <ul>
+                            <li>Le iscrizioni si effettuano attraverso il sito web ufficiale o presso le sedi affiliate</li>
+                            <li>È possibile iscriversi fino a <strong>24 ore prima</strong> dell'inizio del torneo (salvo diversa indicazione)</li>
+                            <li>Il pagamento della quota di iscrizione deve essere effettuato entro i termini stabiliti</li>
+                            <li>In caso di mancato pagamento, l'iscrizione verrà automaticamente annullata</li>
+                        </ul>
+
+                        <h4><i class="fas fa-euro-sign"></i> Quote di Partecipazione</h4>
+                        <div class="warning-box">
+                            <p><strong>Attenzione:</strong> Le quote possono variare in base al tipo di torneo e ai premi in palio.</p>
+                        </div>
+                        <ul>
+                            <li><strong>Tornei Standard:</strong> €5-10</li>
+                            <li><strong>Tornei Premium:</strong> €15-25</li>
+                            <li><strong>Tornei Regionali:</strong> €20-30</li>
+                            <li><strong>Eventi Speciali:</strong> Variabile (comunicato di volta in volta)</li>
+                        </ul>
+
+                        <h4><i class="fas fa-undo"></i> Cancellazioni e Rimborsi</h4>
+                        <ul>
+                            <li>Cancellazione entro <strong>48 ore</strong>: rimborso del 100%</li>
+                            <li>Cancellazione entro <strong>24 ore</strong>: rimborso del 50%</li>
+                            <li>Cancellazione nelle <strong>24 ore precedenti</strong>: nessun rimborso</li>
+                            <li>In caso di annullamento da parte dell'organizzazione: rimborso del 100%</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Regole dei Tornei -->
+            <section class="section fade-in" id="regole-tornei">
+                <div class="rule-card">
+                    <div class="rule-header">
+                        <div class="rule-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h2 class="rule-title">Regole dei Tornei</h2>
+                    </div>
+                    <div class="rule-content">
+                        <h4><i class="fas fa-clock"></i> Tempistiche</h4>
+                        <ul>
+                            <li>I giocatori devono presentarsi <strong>15 minuti prima</strong> dell'inizio del torneo</li>
+                            <li>Il ritardo massimo consentito è di <strong>10 minuti</strong> dall'inizio del round</li>
+                            <li>Ogni round ha una durata prestabilita (specificata nel regolamento del torneo)</li>
+                            <li>Il tempo aggiuntivo viene concesso solo dal giudice capo</li>
+                        </ul>
+
+                        <h4><i class="fas fa-list-check"></i> Deck List e Controlli</h4>
+                        <div class="success-box">
+                            <p><strong>Importante:</strong> Tutti i mazzi devono essere conformi al formato del torneo e alle ban list ufficiali.</p>
+                        </div>
+                        <ul>
+                            <li>La deck list deve essere compilata in modo <strong>leggibile e completo</strong></li>
+                            <li>I controlli random del mazzo possono essere effettuati in qualsiasi momento</li>
+                            <li>Eventuali errori nella deck list devono essere segnalati immediatamente</li>
+                            <li>È vietato modificare il mazzo durante il torneo (salvo sideboard previsto dal formato)</li>
+                        </ul>
+
+                        <h4><i class="fas fa-handshake"></i> Fairplay e Sportività</h4>
+                        <ul>
+                            <li>È obbligatorio salutare l'avversario all'inizio e alla fine di ogni partita</li>
+                            <li>Vietato qualsiasi comportamento antisportivo o offensivo</li>
+                            <li>I giocatori devono collaborare per mantenere un ambiente positivo</li>
+                            <li>In caso di dispute, consultare sempre un giudice</li>
+                        </ul>
+
+                        <h4><i class="fas fa-medal"></i> Sistema di Punteggi</h4>
+                        <ul>
+                            <li><strong>Vittoria:</strong> 3 punti match, 2 punti game</li>
+                            <li><strong>Pareggio:</strong> 1 punto match, 1 punto game</li>
+                            <li><strong>Sconfitta:</strong> 0 punti match, 0 punti game</li>
+                            <li>I <strong>tiebreaker</strong> seguono le regole ufficiali del formato</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Condotta e Comportamento -->
+            <section class="section fade-in" id="condotta-comportamento">
+                <div class="rule-card">
+                    <div class="rule-header">
+                        <div class="rule-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h2 class="rule-title">Condotta e Comportamento</h2>
+                    </div>
+                    <div class="rule-content">
+                        <h4><i class="fas fa-check-circle"></i> Comportamenti Accettati</h4>
+                        <ul>
+                            <li>Rispetto verso tutti i partecipanti, staff e organizzatori</li>
+                            <li>Comunicazione educata e costruttiva</li>
+                            <li>Collaborazione per il buon funzionamento degli eventi</li>
+                            <li>Aiuto reciproco nell'apprendimento delle regole</li>
+                        </ul>
+
+                        <h4><i class="fas fa-times-circle"></i> Comportamenti Vietati</h4>
+                        <div class="warning-box">
+                            <p><strong>Attenzione:</strong> Questi comportamenti comportano sanzioni immediate.</p>
+                        </div>
+                        <ul>
+                            <li><strong>Linguaggio offensivo</strong> o discriminatorio</li>
+                            <li><strong>Comportamenti aggressivi</strong> fisici o verbali</li>
+                            <li><strong>Cheating</strong> o tentativi di imbroglio</li>
+                            <li><strong>Slow play</strong> intenzionale</li>
+                            <li><strong>Utilizzo di sostanze</strong> che alterano le capacità di gioco</li>
+                            <li><strong>Disturbo</strong> intenzionale di altri match</li>
+                        </ul>
+
+                        <h4><i class="fas fa-mobile-alt"></i> Utilizzo Dispositivi Elettronici</h4>
+                        <ul>
+                            <li>I telefoni cellulari devono essere in <strong>modalità silenziosa</strong></li>
+                            <li>Vietato l'uso durante le partite (eccetto emergenze)</li>
+                            <li>Consentito l'uso di calcolatrici per il conteggio punti vita</li>
+                            <li>App ufficiali dei giochi sono permesse per consultazione regole</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sanzioni e Penalità -->
+            <section class="section fade-in" id="sanzioni-penalita">
+                <div class="rule-card">
+                    <div class="rule-header">
+                        <div class="rule-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h2 class="rule-title">Sanzioni e Penalità</h2>
+                    </div>
+                    <div class="rule-content">
+                        <h4><i class="fas fa-flag"></i> Livelli di Sanzione</h4>
+                        
+                        <div class="warning-box">
+                            <h5>Avvertimento (Warning)</h5>
+                            <ul>
+                                <li>Per infrazioni minori o prima violazione</li>
+                                <li>Errori procedurali non intenzionali</li>
+                                <li>Ritardi lievi</li>
+                            </ul>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h5>Game Loss</h5>
+                            <ul>
+                                <li>Errori gravi nella deck list</li>
+                                <li>Slow play dopo avvertimento</li>
+                                <li>Comportamento non sportivo</li>
+                            </ul>
+                        </div>
+
+                        <div class="warning-box">
+                            <h5>Squalifica dal Torneo</h5>
+                            <ul>
+                                <li>Cheating accertato</li>
+                                <li>Comportamento aggressivo</li>
+                                <li>Uso di mazzi illegali dopo controllo</li>
+                            </ul>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h5>Sospensione dalla Lega</h5>
+                            <ul>
+                                <li>Recidività in comportamenti gravi</li>
+                                <li>Violazioni multiple del regolamento</li>
+                                <li>Durata: da 1 mese a 1 anno</li>
+                            </ul>
+                        </div>
+
+                        <h4><i class="fas fa-balance-scale"></i> Procedure di Ricorso</h4>
+                        <ul>
+                            <li>Ogni sanzione può essere oggetto di ricorso entro <strong>7 giorni</strong></li>
+                            <li>Il ricorso deve essere presentato per iscritto all'organizzazione</li>
+                            <li>La commissione disciplinare esamina il caso entro 15 giorni</li>
+                            <li>La decisione della commissione è definitiva</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Regole Specifiche per Gioco -->
+            <section class="section fade-in" id="regole-specifiche">
+                <div class="rule-card">
+                    <div class="rule-header">
+                        <div class="rule-icon">
+                            <i class="fas fa-cards-blank"></i>
+                        </div>
+                        <h2 class="rule-title">Regole Specifiche per Gioco</h2>
+                    </div>
+                    <div class="rule-content">
+                        <h4><i class="fas fa-ship"></i> One Piece TCG</h4>
+                        <ul>
+                            <li>Seguiamo il <strong>regolamento ufficiale Bandai</strong></li>
+                            <li>Ban list aggiornata secondo gli annunci ufficiali</li>
+                            <li>Formato principale: <strong>Standard</strong></li>
+                            <li>Sleeves obbligatorie, stesso colore e marca</li>
+                            <li>Proxy non consentiti nei tornei ufficiali</li>
+                        </ul>
+
+                        <h4><i class="fas fa-eye"></i> Yu-Gi-Oh!</h4>
+                        <ul>
+                            <li>Regolamento <strong>Konami</strong> ufficiale</li>
+                            <li>Ban list TCG europea in vigore</li>
+                            <li>Formati supportati: Advanced, Traditional (su richiesta)</li>
+                            <li>Controllo carta per carta obbligatorio</li>
+                            <li>Side deck di esattamente 15 carte (nei formati che lo prevedono)</li>
+                        </ul>
+
+                        <h4><i class="fas fa-magic"></i> Magic: The Gathering</h4>
+                        <ul>
+                            <li>Regole <strong>Wizards of the Coast</strong></li>
+                            <li>Formati principali: Standard, Modern, Commander</li>
+                            <li>Ban list ufficiale WotC</li>
+                            <li>Judge Level 1+ per tornei Competitive</li>
+                            <li>Sideboard di 15 carte esatte (dove applicabile)</li>
+                        </ul>
+
+                        <div class="success-box">
+                            <p><strong>Nota:</strong> Per tutti i giochi, in caso di dubbi interpretativi, fa sempre fede il regolamento ufficiale della casa produttrice.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact for Rules -->
+            <section class="section fade-in">
+                <div class="rule-card">
+                    <div class="rule-header">
+                        <div class="rule-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h2 class="rule-title">Dubbi sul Regolamento?</h2>
+                    </div>
+                    <div class="rule-content">
+                        <p>Per qualsiasi chiarimento o domanda riguardo al regolamento, non esitare a contattarci:</p>
+                        <ul>
+                            <li><strong>Email:</strong> <a href="mailto:regolamento@legadellostretto.it" style="color: var(--primary-color);">regolamento@legadellostretto.it</a></li>
+                            <li><strong>Discord:</strong> Canale #regolamento nel nostro server</li>
+                            <li><strong>Durante i tornei:</strong> Chiedi direttamente ai giudici presenti</li>
+                        </ul>
+
+                        <div class="highlight-box">
+                            <p><strong>Ultimo aggiornamento regolamento:</strong> Gennaio 2024</p>
+                            <p>Il regolamento può essere modificato in qualsiasi momento. Le modifiche saranno comunicate attraverso i canali ufficiali.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <h3 class="footer-title">Lega dello Stretto</h3>
+            <p class="footer-description">
+                La tua destinazione per i giochi di carte collezionabili più amati al mondo.
+            </p>
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">Home</a>
+                <a href="chi-siamo.html" class="footer-link">Chi Siamo</a>
+                <a href="contatti.html" class="footer-link">Contatti</a>
+                <a href="regolamento.html" class="footer-link">Regolamento</a>
+                <a href="privacy.html" class="footer-link">Privacy</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Lega dello Stretto. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+
+        // Carica il tema salvato
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        if (savedTheme === 'light') {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('dark-theme')) {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Smooth scrolling for TOC links
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animazioni al scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html> 

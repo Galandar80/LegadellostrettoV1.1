@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy - Lega dello Stretto: informazioni sul trattamento dei dati personali e privacy">
+    <title>Privacy Policy - Lega dello Stretto</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@400;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS personalizzato -->
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #1d3557;
+            --accent-color: #ffbd00;
+            --text-color: #E0E0E0;
+            --text-light: #f1faee;
+            --background-color: #121212;
+            --card-color: #1E1E1E;
+            --border-color: #333;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --transition-speed: 0.3s;
+            --border-radius: 16px;
+            --box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --font-primary: 'Nunito', sans-serif;
+            --font-logo: 'Righteous', cursive;
+        }
+
+        body.light-theme {
+            --text-color: #212529;
+            --background-color: #f1faee;
+            --card-color: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color var(--transition-speed) ease;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        .main-header {
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px var(--shadow-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .light-theme .main-header {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-text {
+            font-family: var(--font-logo);
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-speed) ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all var(--transition-speed) ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.4) 0%, rgba(30, 30, 30, 0.5) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-family: var(--font-logo);
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 4rem 0;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: var(--font-logo);
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+        }
+
+        /* Privacy Cards */
+        .privacy-card {
+            background: var(--card-color);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--box-shadow);
+        }
+
+        .privacy-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .privacy-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .privacy-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .privacy-content h4 {
+            color: var(--primary-color);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .privacy-content ul, .privacy-content ol {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .privacy-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .privacy-content p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .highlight-box {
+            background: rgba(230, 57, 70, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .info-box {
+            background: rgba(23, 162, 184, 0.1);
+            border-left: 4px solid #17a2b8;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning-box {
+            background: rgba(255, 193, 7, 0.1);
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .contact-section {
+            background: var(--card-color);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            margin: 3rem 0;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(230, 57, 70, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            border: 1px solid rgba(230, 57, 70, 0.2);
+        }
+
+        .contact-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Table Styles */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--card-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table th {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        .data-table tr:hover {
+            background: rgba(230, 57, 70, 0.05);
+        }
+
+        /* Footer */
+        .main-footer {
+            background: var(--card-color);
+            padding: 3rem 0 2rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-title {
+            font-family: var(--font-logo);
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-description {
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .footer-link:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .privacy-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .data-table {
+                font-size: 0.9rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 0.5rem;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .update-info {
+            background: var(--card-color);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid var(--primary-color);
+            text-align: center;
+        }
+
+        .update-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo-container">
+                <div class="logo-text">Lega dello Stretto</div>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
+                <a href="contatti.html" class="nav-link">Contatti</a>
+                <a href="regolamento.html" class="nav-link">Regolamento</a>
+                <a href="privacy.html" class="nav-link active">Privacy</a>
+            </nav>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title">Privacy Policy</h1>
+                <p class="hero-subtitle">Informazioni sul trattamento dei tuoi dati personali</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Informazioni Generali -->
+            <section class="section fade-in">
+                <div class="privacy-card">
+                    <div class="privacy-header">
+                        <div class="privacy-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <h2 class="privacy-title">Informazioni Generali</h2>
+                    </div>
+                    <div class="privacy-content">
+                        <div class="highlight-box">
+                            <p><strong>La Lega dello Stretto</strong> rispetta la tua privacy e si impegna a proteggere i tuoi dati personali in conformità al Regolamento Generale sulla Protezione dei Dati (GDPR) e alla normativa italiana vigente.</p>
+                        </div>
+
+                        <h4><i class="fas fa-building"></i> Titolare del Trattamento</h4>
+                        <p><strong>Lega dello Stretto</strong><br>
+                        Codice Fiscale: 12345678901<br>
+                        Email: <a href="mailto:privacy@legadellostretto.it" style="color: var(--primary-color);">privacy@legadellostretto.it</a><br>
+                        Sede: Via del Duomo, 123 - 98122 Messina (ME)</p>
+
+                        <h4><i class="fas fa-calendar-alt"></i> Ultima Modifica</h4>
+                        <p>Questa Privacy Policy è stata aggiornata il <strong>15 Gennaio 2024</strong>.</p>
+
+                        <div class="info-box">
+                            <p><strong>Nota importante:</strong> Ti consigliamo di leggere attentamente questa Privacy Policy e di consultarla periodicamente per eventuali aggiornamenti.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dati Raccolti -->
+            <section class="section fade-in">
+                <div class="privacy-card">
+                    <div class="privacy-header">
+                        <div class="privacy-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h2 class="privacy-title">Dati Personali Raccolti</h2>
+                    </div>
+                    <div class="privacy-content">
+                        <h4><i class="fas fa-user"></i> Dati di Identificazione</h4>
+                        <ul>
+                            <li><strong>Nome e Cognome</strong> - per l'identificazione nei tornei</li>
+                            <li><strong>Data di Nascita</strong> - per verificare l'età e categorie di partecipazione</li>
+                            <li><strong>Codice Fiscale</strong> - richiesto per vincite superiori a €77,47</li>
+                            <li><strong>Documento di Identità</strong> - per la verifica dell'identità (solo se necessario)</li>
+                        </ul>
+
+                        <h4><i class="fas fa-envelope"></i> Dati di Contatto</h4>
+                        <ul>
+                            <li><strong>Indirizzo Email</strong> - per comunicazioni ufficiali e iscrizioni</li>
+                            <li><strong>Numero di Telefono</strong> - per contatti urgenti durante i tornei</li>
+                            <li><strong>Username Discord/Social</strong> - per l'accesso alle community</li>
+                        </ul>
+
+                        <h4><i class="fas fa-gamepad"></i> Dati di Gioco</h4>
+                        <ul>
+                            <li><strong>Risultati dei Tornei</strong> - per classifiche e ranking</li>
+                            <li><strong>Deck List</strong> - per i controlli durante i tornei</li>
+                            <li><strong>Partecipazioni</strong> - storico eventi a cui hai partecipato</li>
+                            <li><strong>Preferenze di Gioco</strong> - formati e giochi preferiti</li>
+                        </ul>
+
+                        <div class="warning-box">
+                            <p><strong>Dati Sensibili:</strong> Non raccogliamo categorie particolari di dati personali (origine razziale, opinioni politiche, convinzioni religiose, dati sanitari, ecc.) salvo necessità specifiche e con il tuo consenso esplicito.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Finalità del Trattamento -->
+            <section class="section fade-in">
+                <div class="privacy-card">
+                    <div class="privacy-header">
+                        <div class="privacy-icon">
+                            <i class="fas fa-target"></i>
+                        </div>
+                        <h2 class="privacy-title">Finalità del Trattamento</h2>
+                    </div>
+                    <div class="privacy-content">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Finalità</th>
+                                    <th>Base Giuridica</th>
+                                    <th>Dati Trattati</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Organizzazione Tornei</strong></td>
+                                    <td>Esecuzione del contratto</td>
+                                    <td>Nome, Email, Telefono, Età</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Gestione Iscrizioni</strong></td>
+                                    <td>Esecuzione del contratto</td>
+                                    <td>Dati di contatto, Preferenze</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Comunicazioni</strong></td>
+                                    <td>Consenso / Legittimo interesse</td>
+                                    <td>Email, Nome</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Classifiche Pubbliche</strong></td>
+                                    <td>Legittimo interesse</td>
+                                    <td>Nome, Risultati tornei</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Adempimenti Fiscali</strong></td>
+                                    <td>Obbligo di legge</td>
+                                    <td>Codice Fiscale, Documento</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="info-box">
+                            <h4>Dettaglio delle Finalità:</h4>
+                            <ul>
+                                <li><strong>Organizzazione Eventi:</strong> Gestione completa di tornei e eventi competitive</li>
+                                <li><strong>Community Management:</strong> Mantenimento delle relazioni con la community</li>
+                                <li><strong>Marketing:</strong> Invio di comunicazioni promozionali (solo con consenso)</li>
+                                <li><strong>Sicurezza:</strong> Prevenzione di frodi e comportamenti scorretti</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Modalità di Trattamento -->
+            <section class="section fade-in">
+                <div class="privacy-card">
+                    <div class="privacy-header">
+                        <div class="privacy-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h2 class="privacy-title">Modalità di Trattamento</h2>
+                    </div>
+                    <div class="privacy-content">
+                        <h4><i class="fas fa-shield-alt"></i> Misure di Sicurezza</h4>
+                        <ul>
+                            <li><strong>Crittografia SSL/TLS</strong> per tutte le comunicazioni web</li>
+                            <li><strong>Backup automatici</strong> con crittografia end-to-end</li>
+                            <li><strong>Accesso limitato</strong> solo al personale autorizzato</li>
+                            <li><strong>Autenticazione a due fattori</strong> per gli account amministrativi</li>
+                            <li><strong>Monitoraggio costante</strong> delle attività sui sistemi</li>
+                        </ul>
+
+                        <h4><i class="fas fa-clock"></i> Conservazione dei Dati</h4>
+                        <ul>
+                            <li><strong>Dati di iscrizione:</strong> Per tutta la durata della partecipazione alla lega</li>
+                            <li><strong>Risultati tornei:</strong> 5 anni per finalità storiche e statistiche</li>
+                            <li><strong>Dati fiscali:</strong> 10 anni come richiesto dalla normativa</li>
+                            <li><strong>Comunicazioni marketing:</strong> Fino alla revoca del consenso</li>
+                        </ul>
+
+                        <h4><i class="fas fa-share-alt"></i> Condivisione dei Dati</h4>
+                        <div class="warning-box">
+                            <p><strong>I tuoi dati NON vengono venduti a terze parti.</strong> La condivisione avviene solo nei seguenti casi:</p>
+                            <ul>
+                                <li>Con fornitori di servizi (hosting, pagamenti) sotto contratto di protezione dati</li>
+                                <li>Per adempimenti legali o richieste delle autorità competenti</li>
+                                <li>Per pubblicazione di classifiche pubbliche (solo nome e risultati)</li>
+                                <li>Con organizzatori di eventi nazionali/internazionali (con consenso)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diritti dell'Interessato -->
+            <section class="section fade-in">
+                <div class="privacy-card">
+                    <div class="privacy-header">
+                        <div class="privacy-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h2 class="privacy-title">I Tuoi Diritti</h2>
+                    </div>
+                    <div class="privacy-content">
+                        <p>In conformità al GDPR, hai i seguenti diritti riguardo ai tuoi dati personali:</p>
+
+                        <h4><i class="fas fa-eye"></i> Diritto di Accesso</h4>
+                        <p>Puoi richiedere di conoscere quali dati personali possediamo su di te e come li utilizziamo.</p>
+
+                        <h4><i class="fas fa-edit"></i> Diritto di Rettifica</h4>
+                        <p>Puoi richiedere la correzione di dati inesatti o l'integrazione di dati incompleti.</p>
+
+                        <h4><i class="fas fa-trash"></i> Diritto alla Cancellazione</h4>
+                        <p>Puoi richiedere la cancellazione dei tuoi dati personali in determinate circostanze.</p>
+
+                        <h4><i class="fas fa-pause"></i> Diritto di Limitazione</h4>
+                        <p>Puoi richiedere la limitazione del trattamento dei tuoi dati in specifici casi.</p>
+
+                        <h4><i class="fas fa-download"></i> Diritto alla Portabilità</h4>
+                        <p>Puoi ricevere i tuoi dati in formato strutturato e leggibile elettronicamente.</p>
+
+                        <h4><i class="fas fa-ban"></i> Diritto di Opposizione</h4>
+                        <p>Puoi opporti al trattamento dei tuoi dati per finalità di marketing diretto.</p>
+
+                        <div class="highlight-box">
+                            <h4>Come Esercitare i Tuoi Diritti:</h4>
+                            <p>Per esercitare questi diritti, invia una richiesta a <strong>privacy@legadellostretto.it</strong> specificando:</p>
+                            <ul>
+                                <li>Il diritto che intendi esercitare</li>
+                                <li>I tuoi dati identificativi</li>
+                                <li>Una copia del documento di identità</li>
+                            </ul>
+                            <p><strong>Risponderemo entro 30 giorni</strong> dalla ricezione della richiesta.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cookie Policy -->
+            <section class="section fade-in">
+                <div class="privacy-card">
+                    <div class="privacy-header">
+                        <div class="privacy-icon">
+                            <i class="fas fa-cookie-bite"></i>
+                        </div>
+                        <h2 class="privacy-title">Cookie Policy</h2>
+                    </div>
+                    <div class="privacy-content">
+                        <h4><i class="fas fa-info"></i> Cosa sono i Cookie</h4>
+                        <p>I cookie sono piccoli file di testo memorizzati sul tuo dispositivo quando visiti il nostro sito web.</p>
+
+                        <h4><i class="fas fa-list"></i> Tipologie di Cookie Utilizzati</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Tipo</th>
+                                    <th>Finalità</th>
+                                    <th>Durata</th>
+                                    <th>Consenso</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Tecnici</strong></td>
+                                    <td>Funzionamento del sito</td>
+                                    <td>Sessione</td>
+                                    <td>Non richiesto</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Preferenze</strong></td>
+                                    <td>Salvataggio impostazioni</td>
+                                    <td>1 anno</td>
+                                    <td>Non richiesto</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Analitici</strong></td>
+                                    <td>Statistiche di utilizzo</td>
+                                    <td>2 anni</td>
+                                    <td>Richiesto</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Marketing</strong></td>
+                                    <td>Pubblicità personalizzata</td>
+                                    <td>Variabile</td>
+                                    <td>Richiesto</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="info-box">
+                            <h4>Gestione Cookie:</h4>
+                            <p>Puoi gestire le tue preferenze sui cookie attraverso:</p>
+                            <ul>
+                                <li>Il banner di consenso presente sul sito</li>
+                                <li>Le impostazioni del tuo browser</li>
+                                <li>Strumenti specifici per la gestione dei cookie</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contatti Privacy -->
+            <section class="section fade-in">
+                <div class="contact-section">
+                    <h2 class="section-title">Contatti per la Privacy</h2>
+                    <p>Per qualsiasi domanda o richiesta riguardante il trattamento dei tuoi dati personali:</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <h4><i class="fas fa-envelope"></i> Email</h4>
+                            <p><a href="mailto:privacy@legadellostretto.it">privacy@legadellostretto.it</a></p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <h4><i class="fas fa-clock"></i> Tempi di Risposta</h4>
+                            <p>Entro 30 giorni dalla richiesta</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <h4><i class="fas fa-balance-scale"></i> Autorità di Controllo</h4>
+                            <p><a href="https://www.garanteprivacy.it" target="_blank">Garante per la Protezione dei Dati Personali</a></p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <h4><i class="fas fa-phone"></i> Telefono</h4>
+                            <p>+39 340 123 4567</p>
+                            <small>Lun-Ven 15:00-20:00</small>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Aggiornamenti -->
+            <section class="section fade-in">
+                <div class="update-info">
+                    <h3><i class="fas fa-sync-alt"></i> Aggiornamenti della Privacy Policy</h3>
+                    <p>Ci riserviamo il diritto di modificare questa Privacy Policy in qualsiasi momento. Le modifiche saranno comunicate attraverso:</p>
+                    <ul style="text-align: left; display: inline-block; margin-top: 1rem;">
+                        <li>Notifica via email agli utenti registrati</li>
+                        <li>Banner di avviso sul sito web</li>
+                        <li>Pubblicazione della nuova versione su questa pagina</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>Ti consigliamo di controllare periodicamente questa pagina per rimanere aggiornato.</strong></p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <h3 class="footer-title">Lega dello Stretto</h3>
+            <p class="footer-description">
+                La tua destinazione per i giochi di carte collezionabili più amati al mondo.
+            </p>
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">Home</a>
+                <a href="chi-siamo.html" class="footer-link">Chi Siamo</a>
+                <a href="contatti.html" class="footer-link">Contatti</a>
+                <a href="regolamento.html" class="footer-link">Regolamento</a>
+                <a href="privacy.html" class="footer-link">Privacy</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Lega dello Stretto. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+
+        // Carica il tema salvato
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        if (savedTheme === 'light') {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('dark-theme')) {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Animazioni al scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html> 

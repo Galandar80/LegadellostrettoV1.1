@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lega dello Stretto - Hub ufficiale per One Piece TCG, Yu-Gi-Oh e Magic: The Gathering">
+    <title>Lega dello Stretto - Hub Ufficiale</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@400;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS personalizzato -->
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #1d3557;
+            --accent-color: #ffbd00;
+            --text-color: #E0E0E0;
+            --text-light: #f1faee;
+            --background-color: #121212;
+            --card-color: #1E1E1E;
+            --border-color: #333;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --dark-background: #121212;
+            --dark-card: #1E1E1E;
+            --dark-text: #E0E0E0;
+            --transition-speed: 0.3s;
+            --border-radius: 16px;
+            --box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --font-primary: 'Nunito', sans-serif;
+            --font-logo: 'Righteous', cursive;
+            
+            /* Colori specifici per ogni gioco */
+            --onepiece-primary: #e63946;
+            --onepiece-secondary: #ffbd00;
+            --yugioh-primary: #7c4dff;
+            --yugioh-secondary: #ff6d00;
+            --magic-primary: #0d47a1;
+            --magic-secondary: #ffc107;
+        }
+
+        /* Variabili per tema chiaro */
+        body.light-theme {
+            --text-color: #212529;
+            --background-color: #f1faee;
+            --card-color: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color var(--transition-speed) ease;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        .main-header {
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px var(--shadow-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .light-theme .main-header {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-text {
+            font-family: var(--font-logo);
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all var(--transition-speed) ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+        }
+
+        /* Background personalizzabile - modificare questa sezione per cambiare l'immagine */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* 
+            BACKGROUND PERSONALIZZATO: Stele di Messina
+            Immagine che rappresenta il territorio dello Stretto di Messina
+            */
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center 20%;
+            background-repeat: no-repeat;
+            opacity: 0.8;
+        }
+
+        /* Overlay gradiente per migliorare la leggibilità del testo */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.3) 0%, rgba(30, 30, 30, 0.4) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-family: var(--font-logo);
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        /* Games Section */
+        .games-section {
+            padding: 6rem 0;
+            background: var(--background-color);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--text-color);
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .game-card {
+            background: var(--card-color);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            transition: all var(--transition-speed) ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .light-theme .game-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .game-card.onepiece {
+            border-image: linear-gradient(45deg, var(--onepiece-primary), var(--onepiece-secondary)) 1;
+        }
+
+        .game-card.onepiece:hover {
+            border: 3px solid var(--onepiece-primary);
+            background: var(--card-color);
+            box-shadow: 0 0 30px rgba(230, 57, 70, 0.3);
+        }
+
+        .game-card.yugioh {
+            border-image: linear-gradient(45deg, var(--yugioh-primary), var(--yugioh-secondary)) 1;
+        }
+
+        .game-card.yugioh:hover {
+            border: 3px solid var(--yugioh-primary);
+            background: var(--card-color);
+            box-shadow: 0 0 30px rgba(124, 77, 255, 0.3);
+        }
+
+        .game-card.magic {
+            border-image: linear-gradient(45deg, var(--magic-primary), var(--magic-secondary)) 1;
+        }
+
+        .game-card.magic:hover {
+            border: 3px solid var(--magic-primary);
+            background: var(--card-color);
+            box-shadow: 0 0 30px rgba(13, 71, 161, 0.3);
+        }
+
+        .game-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            position: relative;
+        }
+
+        .onepiece .game-icon {
+            background: linear-gradient(45deg, var(--onepiece-primary), var(--onepiece-secondary));
+        }
+
+        .yugioh .game-icon {
+            background: linear-gradient(45deg, var(--yugioh-primary), var(--yugioh-secondary));
+        }
+
+        .magic .game-icon {
+            background: linear-gradient(45deg, var(--magic-primary), var(--magic-secondary));
+        }
+
+        .game-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .game-description {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        .game-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+
+        .light-theme .stat-item {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .game-button {
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            width: 100%;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .onepiece .game-button {
+            background: linear-gradient(45deg, var(--onepiece-primary), var(--onepiece-secondary));
+        }
+
+        .yugioh .game-button {
+            background: linear-gradient(45deg, var(--yugioh-primary), var(--yugioh-secondary));
+        }
+
+        .magic .game-button {
+            background: linear-gradient(45deg, var(--magic-primary), var(--magic-secondary));
+        }
+
+        .game-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .main-footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-family: var(--font-logo);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-description {
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .footer-link:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 1rem;
+            margin-top: 2rem;
+            opacity: 0.7;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .game-card {
+                padding: 1.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .logo-text {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Coming Soon Badge */
+        .coming-soon {
+            position: relative;
+        }
+
+        .coming-soon::after {
+            content: 'Prossimamente';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transform: rotate(15deg);
+        }
+
+        .coming-soon .game-button {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .coming-soon .game-button:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Custom Background Instructions */
+        .bg-instructions {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="dark-theme">
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo-container">
+                <div class="logo-text">Lega dello Stretto</div>
+            </div>
+            <div class="header-controls">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Lega dello Stretto</h1>
+                <p class="hero-subtitle">Il tuo hub per i giochi di carte collezionabili</p>
+                <p class="hero-description">
+                    Scopri il mondo dei tornei ufficiali di One Piece TCG, Yu-Gi-Oh! e Magic: The Gathering 
+                    nella zona dello Stretto di Messina. Unisciti alla nostra community e partecipa ai tornei più emozionanti!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section class="games-section">
+        <div class="container">
+            <div class="games-grid">
+                <!-- One Piece Card -->
+                <div class="game-card onepiece fade-in" onclick="window.location.href='OnePiece/index.html'">
+                    <div class="game-icon">
+                        <i class="fas fa-anchor"></i>
+                    </div>
+                    <h3 class="game-title">One Piece TCG</h3>
+                    <p class="game-description">
+                        Entra nel mondo dei pirati più famoso! Partecipa ai tornei ufficiali e scala la classifica regionale.
+                    </p>
+                    <div class="game-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">120</span>
+                            <span class="stat-label">Giocatori</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">25</span>
+                            <span class="stat-label">Tornei</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Città</span>
+                        </div>
+                    </div>
+                    <a href="OnePiece/index.html" class="game-button">
+                        <i class="fas fa-play"></i> Entra nella Lega
+                    </a>
+                </div>
+
+                <!-- Yu-Gi-Oh Card -->
+                <div class="game-card yugioh fade-in" onclick="window.location.href='Yugioh/index.html'">
+                    <div class="game-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="game-title">Yu-Gi-Oh!</h3>
+                    <p class="game-description">Il leggendario gioco di carte che ha conquistato il mondo. Duelli epici ti aspettano!</p>
+                    <div class="game-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">85</span>
+                            <span class="stat-label">Duellanti</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">18</span>
+                            <span class="stat-label">Tornei</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Città</span>
+                        </div>
+                    </div>
+                    <a href="Yugioh/index.html" class="game-button">
+                        <i class="fas fa-play"></i>
+                        Entra nella Lega
+                    </a>
+                </div>
+
+                <!-- Magic Card -->
+                <div class="game-card magic coming-soon fade-in">
+                    <div class="game-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3 class="game-title">Magic: The Gathering</h3>
+                    <p class="game-description">
+                        Il primo e più strategico TCG di tutti i tempi. Prepara i tuoi incantesimi!
+                    </p>
+                    <div class="game-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">-</span>
+                            <span class="stat-label">Giocatori</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">-</span>
+                            <span class="stat-label">Città</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">-</span>
+                            <span class="stat-label">Tornei</span>
+                        </div>
+                    </div>
+                    <button class="game-button" disabled>
+                        <i class="fas fa-clock"></i> Prossimamente
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Perché Scegliere la Lega dello Stretto</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="feature-title">Tornei Ufficiali</h3>
+                    <p class="feature-description">
+                        Organizziamo tornei ufficiali riconosciuti con premi esclusivi e qualificazioni per eventi nazionali.
+                    </p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Community Attiva</h3>
+                    <p class="feature-description">
+                        Unisciti a centinaia di giocatori appassionati nella zona dello Stretto di Messina.
+                    </p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Sistema Ranking</h3>
+                    <p class="feature-description">
+                        Scala le classifiche regionali e guadagna punti per riscattare premi esclusivi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <h3 class="footer-title">Lega dello Stretto</h3>
+            <p class="footer-description">
+                La tua destinazione per i giochi di carte collezionabili più amati al mondo.
+            </p>
+            <div class="footer-links">
+                <a href="chi-siamo.html" class="footer-link">Chi Siamo</a>
+                <a href="contatti.html" class="footer-link">Contatti</a>
+                <a href="regolamento.html" class="footer-link">Regolamento</a>
+                <a href="privacy.html" class="footer-link">Privacy</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Lega dello Stretto. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Background Instructions -->
+    <!-- Notifica rimossa -->
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+
+        // Carica il tema salvato o usa dark come predefinito
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        if (savedTheme === 'light') {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('dark-theme')) {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Animazioni al scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Osserva tutti gli elementi con classe fade-in
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+
+        // Smooth scroll per i link interni
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Effetto parallax leggero per l'hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html> 
